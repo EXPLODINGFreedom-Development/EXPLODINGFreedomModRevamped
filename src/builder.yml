@@ -1,0 +1,15 @@
+#
+# MasterBuilder List
+#
+
+clean_threshold_hours: 168
+
+builders:
+  f9a1982e-252e-4ed3-92ed-52b0506a39c9:
+    last_login_name: Prozza
+    is_activated: true
+    is_builder: true
+    is_architect: true
+    ips:
+    - 127.0.0.1
+    
