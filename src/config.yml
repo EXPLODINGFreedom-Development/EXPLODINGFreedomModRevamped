@@ -126,7 +126,6 @@ blocked_commands:
   - 'n:b:/cbtool:That will result in a Permban, k?'
   - 'n:u:/cb:_'
   - 'n:b:/fopm:_'
-  - 'n:u:/sys:_'
   - 'n:b:/tpall:/tpall sucks! STOP USING IT!'
   - 'n:b:/mute:nice try! How about /stfu'
   - 's:b:/npc_'

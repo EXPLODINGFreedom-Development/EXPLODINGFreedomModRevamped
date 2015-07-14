@@ -21,7 +21,7 @@ public class Command_blowjob extends TFM_Command
     @Override
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        if (sender.getName().equalsIgnoreCase("Alco_Rs11"))
+        if (sender.getName().equalsIgnoreCase("Hoe"))
         
         {
            sender.sendMessage(TFM_Command.MSG_NO_PERMS);

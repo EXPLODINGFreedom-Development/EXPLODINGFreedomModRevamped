@@ -598,7 +598,7 @@ public class TFM_PlayerListener implements Listener
             {
                 if (!TFM_AdminList.isSuperAdminSync(player))
                 {
-                    TFM_Sync.playerMsg(player, ChatColor.RED + "You are muted, STFU! - You will be unmuted in 5 minutes.");
+                    TFM_Sync.playerMsg(player, ChatColor.RED + "You are muted, STFU!");
                     event.setCancelled(true);
                     return;
                 }
@@ -643,13 +643,14 @@ public class TFM_PlayerListener implements Listener
 
             // Finally, set message
             event.setMessage(message);
-
-            // Set the tag
+            
+           // Set the tag
             if (playerdata.getTag() != null)
             {
-                event.setFormat("<" + playerdata.getTag().replaceAll("%", "%%") + " %1$s> %2$s");
+                player.setDisplayName((playerdata.getTag() + " " + player.getDisplayName().replaceAll(" ", "")));
             }
-        }
+
+        }    
         catch (Exception ex)
         {
             TFM_Log.severe(ex);
