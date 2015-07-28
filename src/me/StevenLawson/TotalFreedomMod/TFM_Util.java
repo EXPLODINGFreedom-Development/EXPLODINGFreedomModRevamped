@@ -71,14 +71,15 @@ public class TFM_Util
         public static final List<String> DEVELOPERS = Arrays.asList("Madgeek1450", "DarthSalamon", "AcidicCyanide", "wild1145", "WickedGamingUK", "jayscoob", "_xXTheOpXx_");
     public static final List<String> FOP_DEVELOPERS = Arrays.asList("fluffycq");
     public static final List<String> BUILDERS = Arrays.asList("MrPerson660, xfilez");
+    public static final List<String> THEOP = Arrays.asList("DarkGamingDronze");
     public static final List<String> SPECIAL_EXECS = Arrays.asList("LucazDaKing", "Silver_D");
-    public static final List<String> SYS_ADMINS = Arrays.asList("agent_waddles", "WaddlesThePig","_xXTheOpXx_");
+    public static final List<String> SYS_ADMINS = Arrays.asList("agent_waddles", "WaddlesThePig");
     public static final List<String> SYS_COOWNERS = Arrays.asList("evanator324","jayscoob");
     public static final List<String> DEPSECURITYS = Arrays.asList("robgreenwood");
     public static final List<String> SECURITYS = Arrays.asList("Azzieuss");
-    public static final List<String> EXECS = Arrays.asList("Gik", "Joenmb", "TaahThePenguin");
+    public static final List<String> EXECS = Arrays.asList("Gik", "Joenmb", "TaahThePenguin", "PacksGamingHD");
     public static final List<String> EXECMANAGERS = Arrays.asList("MrPerson660");
-    public static final List<String> MULTICRAFTS = Arrays.asList("hiram2238", "Malembo");
+    public static final List<String> MULTICRAFTS = Arrays.asList("hiram2238");
     public static final List<String> CHIEFEXECS = Arrays.asList("charlie5690");
     public static final List<String> OWNERS = Arrays.asList("EXPLODINGTNT001", "Alco_Rs11"); 
     public static final List<String> HELPERS = Arrays.asList("Jeremiah_v");
@@ -138,7 +139,7 @@ public class TFM_Util
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public static void adminAction(String name, String _Is_sick_and_tired_of_you_not_speaking_En, ChatColor chatColor)
+    static String getUniqueId(Player player)
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

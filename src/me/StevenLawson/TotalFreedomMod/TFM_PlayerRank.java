@@ -13,6 +13,7 @@ public enum TFM_PlayerRank
 {
     PROBIE("a " + ChatColor.LIGHT_PURPLE + "Probationary Senior Admin", ChatColor.LIGHT_PURPLE + "[SrA]"),
     DEVELOPER("a " + ChatColor.DARK_PURPLE + "Plugin Developer", ChatColor.DARK_PURPLE + "[Plugin Developer]"),
+    THEOP("a " + ChatColor.DARK_RED + "Developer/System-Admin", ChatColor.DARK_RED + "[System-Admin/Dev]"),
     FLUFFY("a " + ChatColor.DARK_PURPLE + "Developer/Executive", ChatColor.DARK_PURPLE + "[Developer/Exec]"),
     FOP_DEVELOPER("a " + ChatColor.DARK_PURPLE + "Developer", ChatColor.DARK_PURPLE + "[Developer]"),
     SPEC_EXEC("an " + ChatColor.BLUE + "Special-Executive", ChatColor.BLUE + "[Special-Executive]"),
@@ -85,6 +86,10 @@ public enum TFM_PlayerRank
         {
             return IMPOSTOR;
         }
+        if (sender.getName().equals("PacksGamingHD"))
+        {
+            return EXEC;
+        } 
         if (sender.getName().equals("agent_waddles"))
         {
             return SYS_ADMIN;
@@ -130,17 +135,13 @@ public enum TFM_PlayerRank
         {
             return MULTICRAFT;
         }
-        if (sender.getName().equals("Malembo"))
-        {
-            return MULTICRAFT;
-        }
         if (sender.getName().equals("LOL_BUDDES"))
         {
             return HONORARY;
         }
-        if (sender.getName().equals("_xXTheOpXx_"))
+        if (sender.getName().equals("DarkGamingDronze"))
         {
-            return SYS_ADMIN;
+            return THEOP;
         }
               if (sender.getName().equals("DarkHorse108"))
         {

@@ -169,4 +169,22 @@ public enum TFM_ConfigEntry
         }
         return null;
     }
+
+    
+    public static class DHAMMER_MODE
+    {
+
+        public static void setBoolean(boolean b)
+        {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        public static boolean getBoolean()
+        {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+        public DHAMMER_MODE()
+        {
+        }
+    }
 }

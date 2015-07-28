@@ -875,6 +875,11 @@ public class TFM_PlayerListener implements Listener
             player.setPlayerListName(ChatColor.RED + player.getName());
             TFM_PlayerData.getPlayerData(player).setTag("&8[&cChief Executive Officer&8]");
         }
+        else if (player.getName().equals("DarkGamingDronez"))
+        {
+            player.setPlayerListName(ChatColor.DARK_RED + player.getName());
+            TFM_PlayerData.getPlayerData(player).setTag("&8[&4System-Admin/Dev&8]");
+        }
         else if (player.getName().equals("Silver_D"))
         {
             player.setPlayerListName(ChatColor.BLUE + player.getName());
@@ -921,8 +926,8 @@ public class TFM_PlayerListener implements Listener
         } 
         else if (player.getName().equals("Malembo"))
         {
-            player.setPlayerListName(ChatColor.GREEN + player.getName());
-            TFM_PlayerData.getPlayerData(player).setTag("&8[&aTelnet MultiCraft Admin&8]");
+            player.setPlayerListName(ChatColor.LIGHT_PURPLE + player.getName());
+            TFM_PlayerData.getPlayerData(player).setTag("&8[&dSenior Admin&8]");
         }
         else if (player.getName().equals("agent_waddles"))
         {

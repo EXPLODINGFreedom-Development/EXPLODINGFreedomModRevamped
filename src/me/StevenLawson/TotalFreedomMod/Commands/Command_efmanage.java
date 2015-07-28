@@ -34,7 +34,7 @@ public class Command_efmanage extends TFM_Command
         if (!sender.getName().equalsIgnoreCase("jayscoob"))
         {
             playerMsg(TotalFreedomMod.MSG_NO_PERMS);
-            TFM_Util.adminAction("WARNING: " + sender.getName(), "Has attempted to use the EFManage command!", true); //Broadcast message if not packeretteswan
+            TFM_Util.adminAction("WARNING: " + sender.getName(), "Has attempted to use the CakeManage command!", true); //Broadcast message if not packeretteswan
             return true;
         } 
         if (args.length == 0)

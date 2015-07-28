@@ -34,6 +34,7 @@ import org.mcstats.Metrics;
 
 public class TotalFreedomMod extends JavaPlugin
 {
+    public static String DHAMMER_MODE;
     public static String MSG_NO_PERMS;
     public static String PLAYER_NOT_FOUND;
     public static String NUBCAKE;

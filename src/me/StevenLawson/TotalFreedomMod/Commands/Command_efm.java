@@ -56,7 +56,7 @@ public class Command_efm extends TFM_Command
         }
 
        TFM_Util.playerMsg(sender_p, " §c§lEXPLODINGFreedomModRevamped:", ChatColor.GOLD);
-        TFM_Util.playerMsg(sender_p, "EFM:R By Alco_Rs11", ChatColor.GREEN);
+        TFM_Util.playerMsg(sender_p, "EFM:R By Alco_Rs11 and with help from DarkGamingDronez", ChatColor.GREEN);
         TFM_Util.playerMsg(sender_p, "§5Made in the image of the §9TotalFreedomMod §5but with more §6features §5and §eflexibility.", ChatColor.GOLD);
         TFM_Util.playerMsg(sender_p, "§9This plugin is version §76.0", ChatColor.GOLD);
         
