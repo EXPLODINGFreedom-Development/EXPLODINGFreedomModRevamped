@@ -27,7 +27,18 @@ server:
   # URL players should appeal for permanent bans at
   permban_url: http://explodingfreedom.boards.net
 
-# Blocking certain events
+# ForceIP configuration
+forceip:
+  enabled: false
+
+  # The port players should use to connect to your server; only applies to forceip
+  port: 25565
+
+  # The kick message sent to players when logging in with the wrong hostname
+  kickmsg: You have been kicked from the server - Please connect using %address%
+
+  
+  # Blocking certain events
 allow:
   fire_place: false
   fire_spread: false
@@ -107,13 +118,16 @@ blocked_commands:
   - 'n:b:/bcast:_'
   - 'n:b:/banlist:Did you mean "/tfbanlist"'
   - 'n:b:/ipbanlist:Did you mean "/tfipbanlist"'
+  - 'n:b:/fopm:_'
+  - 'n:u:/cb:_'
+  - 'n:b:/mute:nice try! How about /stfu'
  
 
   # Superadmin commands
   - 's:b:/deopall:_'
   - 's:b:/kick:_'
-  - 's:b:/mute:_'
   - 's:b:/superpickaxe:_'
+  - 's:b:/tpall:/tpall sucks! STOP USING IT!'
   - 's:b:/brush:_'
   - 's:b:/mat:_'
   - 's:b:/tool:_'
@@ -124,10 +138,6 @@ blocked_commands:
   - 's:b:/tpohere:Please use "/tpahere" instead of "/tpohere"'
   - 's:b:/tphere:Please use "/tpahere" instead of "/tphere"'
   - 'n:b:/cbtool:That will result in a Permban, k?'
-  - 'n:u:/cb:_'
-  - 'n:b:/fopm:_'
-  - 'n:b:/tpall:/tpall sucks! STOP USING IT!'
-  - 'n:b:/mute:nice try! How about /stfu'
   - 's:b:/npc_'
   - 's:b:/citizens:_'
   - 's:b://generate:_'
@@ -139,10 +149,7 @@ blocked_commands:
   - 's:b://generate:_'
   - 's:b://:_'
   - 's:b:/superpickaxe:_'
-  - 's:b:/brush:_'
   - 's:b:/size:_'
-  - 's:b://mask:_'
-  - 's:b:/mat:_'
   - 's:b:/tool:_'
   - 's:b://butcher:_'
   - 's:b:/killall:_'
@@ -155,15 +162,21 @@ blocked_commands:
   - 's:b:/setidletimeout:_'
   - 's:b:/setworldspawn:_'
   - 's:b:/eco reset:_'
-  - 's:b:/mask:_'
-  - 's:b:/gmask:_'
   - 's:b:/floodfill:_'
   - 's:b:/tool:_'
-  - 's:b:/v:&4Invis is not allowed!'
-  - 's:b:/vanish:&4Invis is not allowed!'
+  - 's:b:/v:&cInvis is not allowed!'
+  - 's:b:/vanish:&cInvis is not allowed!'
   - 's:b:/lrbuild:_'
   - 's:b:/defaultgamemode:_'
   - 's:b:/firstjoinplus:_'
+  - 's:b:/worldborder:_'
+  - 's:b:/weather:_'
+  - 's:b:/setblock:_'
+  - 's:b:/green:_'
+  - 'n:b:/gamerule:_'
+  - 'n:b:/togglejail:_'
+  - 's:b:/execute:&cNo, you will not use this to admin yourself.'
+  
   
   
 
@@ -174,6 +187,15 @@ blocked_commands:
   - 's:a:/save-on:_'
   - 's:a:/save-off:_'
   - 's:a:/clearhistory:_'
+  - 's:a://brush:_'
+  - 's:a://br:_'
+  - 's:a:/mat:_'
+  - 's:a:/mask:_'
+  - 's:a://mask:_'
+  - 's:a:/gmask:_'
+  - 's:a://gmask:_'
+  - 's:a:/br:_'
+  
 
     # Spigot commands
   - 's:a:/restart:_'
@@ -315,7 +337,7 @@ unbannable_usernames:
 
 # IPs that can not be supered
 noadmin_ips:
-  - 127.0.0.1
+  - 49.32.0.135
 
 # Pet Protect - Prevent tamed pets from being killed.
 petprotect:
@@ -347,5 +369,5 @@ autokick:
   
 # Players with access to the overlord command
 overlord_ips:
-    - 141.101.105.161
+    - 68.196.96.20
 

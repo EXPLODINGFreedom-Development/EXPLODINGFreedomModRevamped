@@ -9,8 +9,6 @@ import me.StevenLawson.TotalFreedomMod.Config.TFM_Config;
 import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import me.StevenLawson.TotalFreedomMod.TFM_Ban.BanType;
 import me.StevenLawson.TotalFreedomMod.TFM_UuidManager.TFM_UuidResolver;
-import org.bukkit.Bukkit;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 public class TFM_BanManager
@@ -24,12 +22,6 @@ public class TFM_BanManager
         ipBans = new ArrayList<TFM_Ban>();
         uuidBans = new ArrayList<TFM_Ban>();
         unbannableUUIDs = new ArrayList<UUID>();
-    }
-
-    
-    public static Object getInstance()
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private TFM_BanManager()
@@ -214,7 +206,7 @@ public class TFM_BanManager
 
     public static void addUuidBan(Player player)
     {
-        addUuidBan(new TFM_Ban(TFM_Util.getUniqueId(player), player.getName()));
+        addUuidBan(new TFM_Ban(TFM_UuidManager.getUniqueId(player), player.getName()));
     }
 
     public static void addUuidBan(TFM_Ban ban)
@@ -229,12 +221,12 @@ public class TFM_BanManager
             return;
         }
 
-       if (uuidBans.contains(ban))
+        if (uuidBans.contains(ban))
         {
             return;
-        } 
-        
-       if (unbannableUUIDs.contains(UUID.fromString(ban.getSubject())))
+        }
+
+        if (unbannableUUIDs.contains(UUID.fromString(ban.getSubject())))
         {
             return;
         }
@@ -256,6 +248,11 @@ public class TFM_BanManager
         }
 
         if (ban.isExpired())
+        {
+            return;
+        }
+
+        if (ipBans.contains(ban))
         {
             return;
         }
@@ -297,9 +294,5 @@ public class TFM_BanManager
     {
         uuidBans.clear();
         save();
-    }
-    public static TFM_BanManager getInstance(TFM_BanManager INSTANCE)
-    {
-       return INSTANCE;
     }
 }

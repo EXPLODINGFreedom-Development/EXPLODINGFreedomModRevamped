@@ -32,7 +32,7 @@ public class Command_trainingmode extends TFM_Command
             TFM_ConfigEntry.TRAINING_SESSION.setBoolean(false);
             TFM_ConfigEntry.ADMIN_ONLY_MODE.setBoolean(false);
             TFM_ConfigEntry.TRAINING_SESSION.setBoolean(false);
-            TFM_Util.adminAction(sender.getName(), "Stopping the TrainingMode Session...", true);
+            TFM_Util.adminAction(sender.getName(), "Ending the Training Session...", true);
             return true;
         }
         else if (args[0].equalsIgnoreCase("on"))
@@ -40,12 +40,12 @@ public class Command_trainingmode extends TFM_Command
             TFM_ConfigEntry.TRAINING_SESSION.setBoolean(true);
             TFM_ConfigEntry.ADMIN_ONLY_MODE.setBoolean(true);
             TFM_ConfigEntry.TRAINING_SESSION.setBoolean(true);
-            TFM_Util.adminAction(sender.getName(), "Starting the TrainingMode Session...", true);
+            TFM_Util.adminAction(sender.getName(), "Starting the Training Session...", true);
             for (Player player : server.getOnlinePlayers())
             {
                 if (!TFM_AdminList.isSuperAdmin(player))
                 {
-                    player.kickPlayer("FreedomOP is now in a Training Session.");
+                    player.kickPlayer("EXPLODINGFreedom is now in a Training Session, to train a new Admin. Please check back in a few minutes/");
                 }
             }
             return true;

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.regex.Pattern;
 import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
-import static me.StevenLawson.TotalFreedomMod.Listener.TFM_PlayerListener.DEFAULT_PORT;
+import me.StevenLawson.TotalFreedomMod.Listener.TFM_PlayerListener;
 import net.minecraft.server.v1_8_R3.EntityPlayer;
 import net.minecraft.server.v1_8_R3.MinecraftServer;
 import net.minecraft.server.v1_8_R3.PropertyManager;
@@ -112,7 +112,7 @@ public class TFM_ServerInterface
         // Check force-IP match
         if (TFM_ConfigEntry.FORCE_IP_ENABLED.getBoolean())
         {
-            final String hostname = event.getHostname().replace("FML", ""); // Forge fix - https://github.com/TotalFreedom/TotalFreedomMod/issues/493
+            final String hostname = event.getHostname().replace("\u0000FML\u0000", ""); // Forge fix - https://github.com/TotalFreedom/TotalFreedomMod/issues/493
             final String connectAddress = TFM_ConfigEntry.SERVER_ADDRESS.getString();
             final int connectPort = TotalFreedomMod.server.getPort();
 
@@ -121,7 +121,7 @@ public class TFM_ServerInterface
                 final int forceIpPort = TFM_ConfigEntry.FORCE_IP_PORT.getInteger();
                 event.disallow(PlayerLoginEvent.Result.KICK_OTHER,
                         TFM_ConfigEntry.FORCE_IP_KICKMSG.getString()
-                        .replace("%address%", TFM_ConfigEntry.SERVER_ADDRESS.getString() + (forceIpPort == DEFAULT_PORT ? "" : ":" + forceIpPort)));
+                        .replace("%address%", TFM_ConfigEntry.SERVER_ADDRESS.getString() + (forceIpPort == TFM_PlayerListener.DEFAULT_PORT ? "" : ":" + forceIpPort)));
                 return;
             }
 
