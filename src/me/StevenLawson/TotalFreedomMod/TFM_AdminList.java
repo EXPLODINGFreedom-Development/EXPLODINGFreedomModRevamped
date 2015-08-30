@@ -33,6 +33,7 @@ public class TFM_AdminList
     private static final Set<String> seniorConsoleNames;
     private static final Set<String> superIps;
     private static int cleanThreshold = 24 * 7; // 1 Week in hours
+    public static Object isSeniorAdmin;
 
     static
     {

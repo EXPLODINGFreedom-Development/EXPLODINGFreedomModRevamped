@@ -3,6 +3,7 @@ package me.StevenLawson.TotalFreedomMod;
 import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import static me.StevenLawson.TotalFreedomMod.TFM_Util.DEVELOPERS;
 import static me.StevenLawson.TotalFreedomMod.TFM_Util.FOP_DEVELOPERS;
+import static me.StevenLawson.TotalFreedomMod.TFM_Util.LEAD_DEVELOPERS;
 import static me.StevenLawson.TotalFreedomMod.TFM_Util.SPECIAL_EXECS;
 import static me.StevenLawson.TotalFreedomMod.TFM_Util.SYS_ADMINS;
 import org.bukkit.ChatColor;
@@ -12,10 +13,10 @@ import org.bukkit.entity.Player;
 public enum TFM_PlayerRank
 {
     PROBIE("a " + ChatColor.LIGHT_PURPLE + "Probationary Senior Admin", ChatColor.LIGHT_PURPLE + "[SrA]"),
-    DEVELOPER("a " + ChatColor.DARK_PURPLE + "Plugin Developer", ChatColor.DARK_PURPLE + "[Plugin Developer]"),
+    DEVELOPER("a " + ChatColor.DARK_PURPLE + "Plugin Developer", ChatColor.DARK_PURPLE + "[Developer]"),
     THEOP("a " + ChatColor.DARK_RED + "Developer/System-Admin", ChatColor.DARK_RED + "[System-Admin/Dev]"),
     FLUFFY("a " + ChatColor.DARK_PURPLE + "Developer/Executive", ChatColor.DARK_PURPLE + "[Developer/Exec]"),
-    FOP_DEVELOPER("a " + ChatColor.DARK_PURPLE + "Developer", ChatColor.DARK_PURPLE + "[Developer]"),
+    LEAD_DEVELOPER("a " + ChatColor.DARK_PURPLE + "Lead-Developer", ChatColor.DARK_PURPLE + "[Lead-Developer]"),
     SPEC_EXEC("an " + ChatColor.BLUE + "Special-Executive", ChatColor.BLUE + "[Special-Executive]"),
     HELPER("an " + ChatColor.YELLOW + "Helper", ChatColor.YELLOW + "[Helper]"),
     BUILDER("a " + ChatColor.GOLD + "Master-Builder", ChatColor.GOLD + "[Master-Builder]"),
@@ -97,6 +98,10 @@ public enum TFM_PlayerRank
         if (sender.getName().equals("TaahThePenguin"))
         {
             return EXEC;
+        }
+        if (sender.getName().equals("AwesomePinch"))
+        {
+            return DEVELOPER;
         }
         if (sender.getName().equals("Silver_D"))
         {
@@ -203,9 +208,9 @@ public enum TFM_PlayerRank
             return SPEC_EXEC;
         }
         
-        else if (FOP_DEVELOPERS.contains(sender.getName()))
+        else if (LEAD_DEVELOPERS.contains(sender.getName()))
         {
-            return FOP_DEVELOPER;
+            return LEAD_DEVELOPER;
         }
         
         else if (DEVELOPERS.contains(sender.getName()))

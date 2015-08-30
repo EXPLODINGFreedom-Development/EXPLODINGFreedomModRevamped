@@ -897,6 +897,11 @@ public class TFM_PlayerListener implements Listener
             event.setJoinMessage(ChatColor.BLUE + "Jeremiah_v is a Helper!");
             
         }
+        else if (player.getName().equals("AwesomePinch"))
+        {
+            player.setPlayerListName(ChatColor.DARK_PURPLE + player.getName());
+            TFM_PlayerData.getPlayerData(player).setTag("&8[&5Developer&8]");
+        }
         else if (player.getName().equals("evanator324"))
         {
             player.setPlayerListName(ChatColor.DARK_BLUE + player.getName());

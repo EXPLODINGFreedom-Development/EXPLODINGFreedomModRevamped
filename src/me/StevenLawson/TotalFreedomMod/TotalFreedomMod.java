@@ -89,9 +89,9 @@ public class TotalFreedomMod extends JavaPlugin
     @Override
     public void onEnable()
     {
-        TFM_Log.info("Made by Madgeek1450 and Prozza");
+        TFM_Log.info("TotalFreedomMod by Madgeek1450 and Prozza");
         TFM_Log.info("Compiled " + buildDate + " by " + buildCreator);
-        TFM_Log.info("FreedomOpMod Reborn for 1.8");
+        TFM_Log.info("EXPLODINGFreedomMod:Revamped by Alco_Rs11");
 
         final TFM_Util.MethodTimer timer = new TFM_Util.MethodTimer();
         timer.start();

@@ -101,6 +101,12 @@ public class TFM_PlayerData
     private BukkitTask lockupScheduleTask = null;
     private String lastMessage = "";
     private boolean inAdminchat = false;
+    private boolean inTelnetAdminchat = false;
+    private boolean inSeniorAdminchat = false;
+    private boolean inExecutivechat = false;
+    private boolean inSpecialExecutivechat = false;
+    private boolean inSystemAdminchat = false;
+    private boolean inOwnerchat = false;
     private boolean allCommandsBlocked = false;
     private boolean verifiedSuperadminId = false;
     private String lastCommand = "";
@@ -111,7 +117,7 @@ public class TFM_PlayerData
     // Ends FOPM Changes //
     private String tag = null;
     private int warningCount = 0;
-
+    
     private TFM_PlayerData(Player player, UUID uuid, String ip)
     {
         this.player = player;
@@ -491,6 +497,65 @@ public class TFM_PlayerData
         return this.inAdminchat;
     }
 
+    public void setTelnetAdminChat(boolean inAdminchat)
+    {
+        this.inTelnetAdminchat = inTelnetAdminchat;
+    }
+
+    public boolean inTelnetAdminChat()
+    {
+        return this.inTelnetAdminchat;
+    }
+    
+    public void setSeniorAdminChat(boolean inAdminchat)
+    {
+        this.inSeniorAdminchat = inSeniorAdminchat;
+    }
+
+    public boolean inSeniorAdminChat()
+    {
+        return this.inSeniorAdminchat;
+    }
+    
+    public void setExecutiveChat(boolean inAdminchat)
+    {
+        this.inExecutivechat = inExecutivechat;
+    }
+
+    public boolean inExecutiveChat()
+    {
+        return this.inExecutivechat;
+    }
+    
+    public void setSpecialExecutiveChat(boolean inAdminchat)
+    {
+        this.inSpecialExecutivechat = inSpecialExecutivechat;
+    }
+
+    public boolean inSpecialExecutiveChat()
+    {
+        return this.inSpecialExecutivechat;
+    }
+    
+    public void setSystemAdminChat(boolean inAdminchat)
+    {
+        this.inSystemAdminchat = inSystemAdminchat;
+    }
+
+    public boolean inSystemAdminChat()
+    {
+        return this.inSystemAdminchat;
+    }
+    
+    public void setOwnerChat(boolean inAdminchat)
+    {
+        this.inOwnerchat = inOwnerchat;
+    }
+
+    public boolean inOwnerChat()
+    {
+        return this.inOwnerchat;
+    }
     public boolean allCommandsBlocked()
     {
         return this.allCommandsBlocked;
@@ -583,7 +648,7 @@ public class TFM_PlayerData
         {
         }
     }
-
+      
     public enum CageLayer
     {
         INNER, OUTER
