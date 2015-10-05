@@ -55,7 +55,7 @@ public class TFM_AdminList
         };
     }
 
-    private TFM_AdminList()
+     private TFM_AdminList()
     {
         throw new AssertionError();
     }
@@ -102,6 +102,35 @@ public class TFM_AdminList
             }
 
             names.add(admin.getLastLoginName());
+        }
+
+        return Collections.unmodifiableSet(names);
+    }
+public static Set<String> getTelnetAdminNames()
+    {
+        final Set<String> names = new HashSet<String>();
+
+        for (TFM_Admin admin : adminList.values())
+        {
+            if (admin.isTelnetAdmin())
+            {
+                names.add(admin.getLastLoginName());
+            }
+        }
+
+        return Collections.unmodifiableSet(names);
+    }
+
+    public static Set<String> getSeniorAdminNames()
+    {
+        final Set<String> names = new HashSet<String>();
+
+        for (TFM_Admin admin : adminList.values())
+        {
+            if (admin.isSeniorAdmin())
+            {
+                names.add(admin.getLastLoginName());
+            }
         }
 
         return Collections.unmodifiableSet(names);

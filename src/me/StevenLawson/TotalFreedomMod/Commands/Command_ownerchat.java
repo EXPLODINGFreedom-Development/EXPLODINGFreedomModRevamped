@@ -34,7 +34,7 @@ public class Command_ownerchat extends TFM_Command
             {
                 userinfo.setAdminChat(!userinfo.inAdminChat());
             }
-
+            
             if (userinfo.inOwnerChat())
             {
                 userinfo.setOwnerChat(!userinfo.inOwnerChat());

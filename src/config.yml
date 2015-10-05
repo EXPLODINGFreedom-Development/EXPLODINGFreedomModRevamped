@@ -27,6 +27,15 @@ server:
   # URL players should appeal for permanent bans at
   permban_url: http://explodingfreedom.boards.net
 
+# This section requires the EssentialsChat.jar to work.
+
+  chat:
+  #This formats the chat to be displayed as whatever format you like.
+  #This is intended to customize the basic vanilla chat to something more special, and one-of-a-kind.
+  
+  format: '&7{DISPLAYNAME} &e: &7{MESSAGE}'
+  #format: '&7[{GROUP}]&r {DISPLAYNAME}&7:&r {MESSAGE}'
+
 # ForceIP configuration
 forceip:
   enabled: false
@@ -114,8 +123,9 @@ blocked_commands:
   - 'n:b:/gamerule:_'
   - 'n:b:/fg:_'
   - 'n:b:/kickall:_'
-  - 'n:b:/tpall:You cant tp everyone!'
-  - 'n:b:/bcast:_'
+  - 'n:b:/bc:This is a admin only command.'
+  - 'n:b:/broadcast:This is a admin only command.'
+  - 'n:b:/bcast:This is a admin only command.'
   - 'n:b:/banlist:Did you mean "/tfbanlist"'
   - 'n:b:/ipbanlist:Did you mean "/tfipbanlist"'
   - 'n:b:/fopm:_'
@@ -164,8 +174,8 @@ blocked_commands:
   - 's:b:/eco reset:_'
   - 's:b:/floodfill:_'
   - 's:b:/tool:_'
-  - 's:b:/v:&cInvis is not allowed!'
-  - 's:b:/vanish:&cInvis is not allowed!'
+  - 's:b:/v:&cThis command is blocked due to the increase of invis grief, so it is admins only.'
+  - 's:b:/vanish:&cThis command is blocked due to the increase of invis grief, so it is admins only.'
   - 's:b:/lrbuild:_'
   - 's:b:/defaultgamemode:_'
   - 's:b:/firstjoinplus:_'
@@ -338,6 +348,9 @@ unbannable_usernames:
 # IPs that can not be supered
 noadmin_ips:
   - 49.32.0.135
+
+# DoomHammer
+dhammer_mode: true
 
 # Pet Protect - Prevent tamed pets from being killed.
 petprotect:

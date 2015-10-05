@@ -23,7 +23,7 @@ The your wondering what (mode.equals("")) does it defines what you have to say f
 @CommandParameters(
         description = "Chat Levels", //Description
         aliases = "cl",
-        usage = "/<command> [ 1 | 2 | 3 | 4 | 5 | 6 | 7 | list ]") //Usage
+        usage = "/<command> [1|2|3|4|5|6|7|list] <message>") //Usage
 public class Command_chatlevel extends TFM_Command
 {
     @Override

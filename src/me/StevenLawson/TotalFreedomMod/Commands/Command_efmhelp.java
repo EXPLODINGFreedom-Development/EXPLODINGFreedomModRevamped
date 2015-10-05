@@ -45,9 +45,11 @@ public class Command_efmhelp extends TFM_Command
          playerMsg("§6/adminmode§f: Make the server admin-only");
          playerMsg("§6/adminworld§f: Teleport to the adminworld");
          playerMsg("§6/adventure§f: Go into adventure mode");
+         playerMsg("§6/afk§f: Marks you as AFK");
          playerMsg("§6/ai§f: Find out how to apply for SA");
          playerMsg("§6/bar§f: BarAPI Command");	
          playerMsg("§6/blockcmd§f: Block specified user's commands");	
+         playerMsg("§6/broadcast§f: Broadcast a message");
          playerMsg("§6/builderworld§f: Access the builder world");	
         }
         
@@ -148,6 +150,7 @@ public class Command_efmhelp extends TFM_Command
      if (mode.equals("9"))
         {
          playerMsg("§e----§aEXPLODINGFreedomMod Basic Commands Page §c9§e----");
+         playerMsg("§6/motd§f: View the message of the day ");
          playerMsg("§6/mp§f: Purge all mobs ");
          playerMsg("§6/mp44§f: Gives you a machine gun ");
          playerMsg("§6/multirun§f: Run a command in a set amount of times");
@@ -321,6 +324,7 @@ public class Command_efmhelp extends TFM_Command
      if (mode.equals("21"))
         {
          playerMsg("§e----§aEXPLODINGFreedomMod Personal/Fun Commands Page §c2§e----");
+         playerMsg("§6/alcodoom§f: Alco_Rs11 personal command");
          playerMsg("§6/evanhammer§f: evanator324 personal command");
          playerMsg("§6/godhammer§f: XxNicozillaxX personal command ");
          playerMsg("§6/hack§f: Hack the server, NOT ");
@@ -329,19 +333,23 @@ public class Command_efmhelp extends TFM_Command
          playerMsg("§6/jayhammer§f: Jayscoob personal command");
          playerMsg("§6/jayslay§f: Jayscoob personal command");	
          playerMsg("§6/k§f: Nobody cares about what you said");	
-         playerMsg("§6/kicknoob§f: Kicks all noobs");
-         playerMsg("§6/landmine§f: Set Landmines ");	
-         playerMsg("§6/optroll§f: Trolls OPs (Alco_Rs11/DarkGamingDronze cmd)");
+         	
          return true;
         }   
       if (mode.equals("22"))
         {
          playerMsg("§e----§aEXPLODINGFreedomMod Personal/Fun Commands Page §c3§e----");
+         playerMsg("§6/kicknoob§f: Kicks all noobs");
+         playerMsg("§6/landmine§f: Set Landmines ");
+         playerMsg("§6/optroll§f: Trolls OPs (Alco_Rs11/DarkGamingDronze cmd)");
          playerMsg("§6/orbit§f: Launch someone into orbit");
          playerMsg("§6/pussy§f: Kills pussies ");
          playerMsg("§6/sexy§f: Tells everyone who's sexy ");
+         playerMsg("§6/skull§f: Give yourself someone's skull ");
          playerMsg("§6/tnthammer§f: EXPLODINGTNT001/Alco_Rs11 personal command ");
          playerMsg("§6/whore§f: Calls someone a whore");
+         playerMsg("§6/workbench§f:§c Command not supported");
+         playerMsg("§6/v§f: Make yourself invisible");
          return true;
         }   
      return true;

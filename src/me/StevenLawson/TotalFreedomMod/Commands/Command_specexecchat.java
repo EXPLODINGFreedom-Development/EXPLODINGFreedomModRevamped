@@ -29,12 +29,12 @@ public class Command_specexecchat extends TFM_Command
             }
 
             TFM_PlayerData userinfo = TFM_PlayerData.getPlayerData(sender_p);
-
+            
             if (userinfo.inAdminChat())
             {
                 userinfo.setAdminChat(!userinfo.inAdminChat());
             }
-
+            
             if (userinfo.inSpecialExecutiveChat())
             {
                 userinfo.setSpecialExecutiveChat(!userinfo.inSpecialExecutiveChat());

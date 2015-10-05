@@ -34,7 +34,7 @@ public class Command_syschat extends TFM_Command
             {
                 userinfo.setAdminChat(!userinfo.inAdminChat());
             }
-
+            
             if (userinfo.inSystemAdminChat())
             {
                 userinfo.setSystemAdminChat(!userinfo.inSystemAdminChat());

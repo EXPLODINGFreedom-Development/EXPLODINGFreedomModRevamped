@@ -4,8 +4,10 @@ import com.google.common.base.Function;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import me.StevenLawson.TotalFreedomMod.Bridge.TFM_WorldEditListener;
@@ -43,6 +45,11 @@ public class TotalFreedomMod extends JavaPlugin
     public static boolean nukeMonitor;
     public static double nukeMonitorRange;
     static String BUILDER_FILENAME;
+
+    public static String color(String join)
+    {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     private SocketServer socketServer = new SocketServer();
     private Thread thread;
     //
@@ -51,18 +58,23 @@ public class TotalFreedomMod extends JavaPlugin
     public static final int MAX_USERNAME_LENGTH = 20;
     //
     public static final String CONFIG_FILENAME = "config.yml";
+    public static final String RULES_FILENAME = "rules.yml";
     public static final String SUPERADMIN_FILENAME = "superadmin.yml";
     public static final String PERMBAN_FILENAME = "permban.yml";
     public static final String UUID_FILENAME = "uuids.db";
     public static final String PROTECTED_AREA_FILENAME = "protectedareas.dat";
     public static final String SAVED_FLAGS_FILENAME = "savedflags.dat";
     //
+    // Add a fix for some stuff
+    public static List<String> exploded = new ArrayList<String>();
+    //
+    //
     @Deprecated
     public static final String YOU_ARE_NOT_OP = me.StevenLawson.TotalFreedomMod.Commands.TFM_Command.YOU_ARE_NOT_OP;
     //
     public static String buildNumber = "1";
     public static String buildDate = TotalFreedomMod.buildDate = TFM_Util.dateToString(new Date());
-    public static String buildCreator = "tylerhyperHD";
+    public static String buildCreator = "DarkGamingDronze";
     //
     public static Server server;
     public static TotalFreedomMod plugin;
@@ -179,6 +191,7 @@ public class TotalFreedomMod extends JavaPlugin
         // Start services
         TFM_ServiceChecker.start();
         TFM_HTTPD_Manager.start();
+        TFM_CommandBlocker.load();
 
         timer.update();
 
@@ -201,7 +214,7 @@ public class TotalFreedomMod extends JavaPlugin
             public void run()
             {
                 TFM_CommandLoader.scan();
-                TFM_CommandBlocker.load();
+                
 
                 // Add spawnpoints later - https://github.com/TotalFreedom/TotalFreedomMod/issues/438
                 TFM_ProtectedArea.autoAddSpawnpoints();

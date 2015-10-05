@@ -497,7 +497,7 @@ public class TFM_PlayerData
         return this.inAdminchat;
     }
 
-    public void setTelnetAdminChat(boolean inAdminchat)
+    public void setTelnetAdminChat(boolean inTelnetAdminchat)
     {
         this.inTelnetAdminchat = inTelnetAdminchat;
     }
@@ -507,7 +507,7 @@ public class TFM_PlayerData
         return this.inTelnetAdminchat;
     }
     
-    public void setSeniorAdminChat(boolean inAdminchat)
+    public void setSeniorAdminChat(boolean inSeniorAdminchat)
     {
         this.inSeniorAdminchat = inSeniorAdminchat;
     }
@@ -517,7 +517,7 @@ public class TFM_PlayerData
         return this.inSeniorAdminchat;
     }
     
-    public void setExecutiveChat(boolean inAdminchat)
+    public void setExecutiveChat(boolean inExecutivechat)
     {
         this.inExecutivechat = inExecutivechat;
     }
@@ -527,7 +527,7 @@ public class TFM_PlayerData
         return this.inExecutivechat;
     }
     
-    public void setSpecialExecutiveChat(boolean inAdminchat)
+    public void setSpecialExecutiveChat(boolean inSpecialExecutivechat)
     {
         this.inSpecialExecutivechat = inSpecialExecutivechat;
     }
@@ -537,7 +537,7 @@ public class TFM_PlayerData
         return this.inSpecialExecutivechat;
     }
     
-    public void setSystemAdminChat(boolean inAdminchat)
+    public void setSystemAdminChat(boolean inSystemAdminchat)
     {
         this.inSystemAdminchat = inSystemAdminchat;
     }

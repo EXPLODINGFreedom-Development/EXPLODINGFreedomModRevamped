@@ -11,7 +11,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(level = AdminLevel.SENIOR, source = SourceType.BOTH)
+@CommandPermissions(level = AdminLevel.SUPER, source = SourceType.BOTH)
 @CommandParameters(description = "AdminChat - Talk privately with other admins. Using <command> itself will toggle AdminChat on and off for all messages.", 
 usage = "/<command> [message...]",
 aliases = "t")
@@ -36,7 +36,7 @@ public class Command_telnetchat extends TFM_Command
             {
                 userinfo.setAdminChat(!userinfo.inAdminChat());
             }
-
+            
             if (userinfo.inTelnetAdminChat())
             {
                 userinfo.setTelnetAdminChat(!userinfo.inTelnetAdminChat());

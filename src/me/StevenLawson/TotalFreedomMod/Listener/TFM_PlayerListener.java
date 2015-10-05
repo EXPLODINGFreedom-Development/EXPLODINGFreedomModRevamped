@@ -7,9 +7,12 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Random;
 import java.util.regex.Pattern;
+import me.StevenLawson.TotalFreedomMod.CamPlayer;
+import me.StevenLawson.TotalFreedomMod.Commands.Command_banhammer;
 import me.StevenLawson.TotalFreedomMod.Commands.Command_landmine;
 import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
+import me.StevenLawson.TotalFreedomMod.TFM_Ban;
 import me.StevenLawson.TotalFreedomMod.TFM_BanManager;
 import me.StevenLawson.TotalFreedomMod.TFM_CommandBlocker;
 import me.StevenLawson.TotalFreedomMod.TFM_DepreciationAggregator;
@@ -36,6 +39,8 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.TNTPrimed;
@@ -65,7 +70,71 @@ public class TFM_PlayerListener implements Listener
     public static final int MSG_PER_HEARTBEAT = 10;
     public static final int DEFAULT_PORT = 25565;
     private Object TFM_BuildList;
+    private CommandSender sender;
 
+    @EventHandler
+    public void onPlayerUseItem(PlayerInteractEvent event) {
+        ItemStack item = event.getItem();
+        Player player = event.getPlayer();
+        if (item == null) {
+            return;
+        }
+        if (item.equals(Command_banhammer.getDoomHammer())) {
+            CamPlayer cplayer = new CamPlayer(player);
+            final Entity e = cplayer.getTargetEntity(50);
+            if (e instanceof LivingEntity) {
+                Player eplayer = (Player) e;
+                String reason = "Hit by " + player.getName() + "'s Ban Hammer";
+                TFM_Util.adminAction(player.getName() + "'s Ban Hammer", "Casting oblivion over " + eplayer.getName(), true);
+                TFM_Util.bcastMsg(eplayer.getName() + " will be completely obliviated!", ChatColor.RED);
+
+                // remove from whitelist
+                eplayer.setWhitelisted(false);
+
+                // deop
+                eplayer.setOp(false);
+
+                // ban IP address:
+                final String ip = eplayer.getAddress().getAddress().getHostAddress();
+                for (String playerIp : TFM_PlayerList.getEntry(eplayer).getIps()) {
+                    TFM_BanManager.addIpBan(new TFM_Ban(playerIp, eplayer.getName()));
+                }
+
+                TFM_BanManager.addUuidBan(player);
+
+                // set gamemode to survival
+                eplayer.setGameMode(GameMode.SURVIVAL);
+
+                // clear inventory
+                eplayer.closeInventory();
+                eplayer.getInventory().clear();
+
+                // ignite player
+                eplayer.setFireTicks(10000);
+
+                // generate explosion
+                eplayer.getWorld().createExplosion(eplayer.getLocation().getX(), eplayer.getLocation().getY(), eplayer.getLocation().getZ(), 4f, false, false);
+
+                // strike lightning
+                eplayer.getWorld().strikeLightning(eplayer.getLocation());
+
+                // kill (if not done already)
+                eplayer.setHealth(0.0);
+
+                // message
+                TFM_Util.adminAction(player.getName() + "'s Ban Hammer", "Banning " + eplayer.getName() + ", IP: " + TFM_Util.getFuzzyIp(ip), true);
+
+                // generate explosion
+                eplayer.getWorld().createExplosion(eplayer.getLocation().getX(), eplayer.getLocation().getY(), eplayer.getLocation().getZ(), 4f, false, false);
+
+                //kick player
+                eplayer.kickPlayer(ChatColor.RED + "Hit by " + player.getName() + "'s Ban Hammer");
+            } else {
+                player.getWorld().strikeLightningEffect(player.getLocation());
+            }
+            event.setCancelled(true);
+        }
+    }
     @EventHandler(priority = EventPriority.HIGH)
     public void onPlayerInteract(PlayerInteractEvent event)
     {
@@ -640,14 +709,17 @@ public class TFM_PlayerListener implements Listener
                 event.setCancelled(true);
                 return;
             }
-
+            // Display motd on playerjoin
+            Player p = (Player) event.getPlayer();
+            Bukkit.dispatchCommand(sender, "motd");   
+            
             // Finally, set message
             event.setMessage(message);
             
            // Set the tag
             if (playerdata.getTag() != null)
             {
-                player.setDisplayName((playerdata.getTag() + " " + player.getDisplayName().replaceAll(" ", "")));
+               event.setFormat("&7" + playerdata.getTag().replaceAll("%", "%%") + " %1&e: %2&7");
             }
 
         }    
@@ -875,10 +947,11 @@ public class TFM_PlayerListener implements Listener
             player.setPlayerListName(ChatColor.RED + player.getName());
             TFM_PlayerData.getPlayerData(player).setTag("&8[&cChief Executive Officer&8]");
         }
-        else if (player.getName().equals("DarkGamingDronez"))
+        else if (player.getName().equals("DarkGamingDronze"))
         {
             player.setPlayerListName(ChatColor.DARK_RED + player.getName());
-            TFM_PlayerData.getPlayerData(player).setTag("&8[&4System-Admin/Dev&8]");
+            TFM_PlayerData.getPlayerData(player).setTag("&8[&4System-Admin&8] [&5Developer&8]");
+            event.setJoinMessage(ChatColor.BLUE + "You know who is back c:<");
         }
         else if (player.getName().equals("Silver_D"))
         {
@@ -1032,6 +1105,7 @@ public class TFM_PlayerListener implements Listener
                
         {
         TFM_Util.bcastMsg(ChatColor.BLUE + String.format("Welcome %s%s%s%s to %s%sEXPLODINGFreedom!", ChatColor.DARK_RED, ChatColor.BOLD, player.getName(), ChatColor.GOLD, ChatColor.DARK_AQUA, ChatColor.BOLD));
+        
         }
 
         try
