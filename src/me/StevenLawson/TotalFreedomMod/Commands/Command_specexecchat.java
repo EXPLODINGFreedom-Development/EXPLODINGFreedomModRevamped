@@ -40,6 +40,25 @@ public class Command_specexecchat extends TFM_Command
                 userinfo.setSpecialExecutiveChat(!userinfo.inSpecialExecutiveChat());
             }
 
+            if (userinfo.inSeniorAdminChat())
+            {
+                userinfo.setSeniorAdminChat(!userinfo.inSeniorAdminChat());
+            }
+            
+            if (userinfo.inExecutiveChat())
+            {
+                userinfo.setExecutiveChat(!userinfo.inExecutiveChat());
+            }
+           
+            if (userinfo.inSystemAdminChat())
+            {
+                userinfo.setSystemAdminChat(!userinfo.inSystemAdminChat());
+            }
+            
+            if (userinfo.inOwnerChat())
+            {
+                userinfo.setOwnerChat(!userinfo.inOwnerChat());
+            }
             userinfo.setSpecialExecutiveChat(!userinfo.inSpecialExecutiveChat());
             playerMsg("Toggled Special-Executive Chat " + (userinfo.inSpecialExecutiveChat() ? "on" : "off") + ".");
         }

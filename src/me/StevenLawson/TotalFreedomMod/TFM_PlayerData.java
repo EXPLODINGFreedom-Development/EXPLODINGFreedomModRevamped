@@ -111,10 +111,10 @@ public class TFM_PlayerData
     private boolean verifiedSuperadminId = false;
     private String lastCommand = "";
     private boolean cmdspyEnabled = false;
-    // Starts FOPM Changes //
+    // Starts EFMR Changes //
     private boolean inGod = false;
     private boolean isDoubleJumper = false;
-    // Ends FOPM Changes //
+    // Ends EFMR Changes //
     private String tag = null;
     private int warningCount = 0;
     

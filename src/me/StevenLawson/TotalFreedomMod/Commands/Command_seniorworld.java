@@ -76,12 +76,12 @@ public class Command_seniorworld extends TFM_Command
                     {
                         if (TFM_AdminWorld.getInstance().canAccessWorld(sender_p))
                         {
-                            playerMsg("Going to the AdminWorld.");
+                            playerMsg("Going to the SeniorWorld.");
                             TFM_AdminWorld.getInstance().sendToWorld(sender_p);
                         }
                         else
                         {
-                            playerMsg("You don't have permission to access the AdminWorld.");
+                            playerMsg("You don't have permission to access the SeniorWorld.");
                         }
                     }
 

@@ -24,8 +24,39 @@ public class Command_o extends TFM_Command
                 playerMsg("Only in-game players can toggle AdminChat.");
                 return true;
             }
-
+            
             TFM_PlayerData userinfo = TFM_PlayerData.getPlayerData(sender_p);
+            
+            if (userinfo.inSeniorAdminChat())
+            {
+                userinfo.setSeniorAdminChat(!userinfo.inSeniorAdminChat());
+            }
+
+            if (userinfo.inExecutiveChat())
+            {
+                userinfo.setExecutiveChat(!userinfo.inExecutiveChat());
+            }
+            
+            if (userinfo.inSpecialExecutiveChat())
+            {
+                userinfo.setSpecialExecutiveChat(!userinfo.inSpecialExecutiveChat());
+            }
+
+            if (userinfo.inSystemAdminChat())
+            {
+                userinfo.setSystemAdminChat(!userinfo.inSystemAdminChat());
+            }
+            
+            if (userinfo.inOwnerChat())
+            {
+                userinfo.setOwnerChat(!userinfo.inOwnerChat());
+            }
+            if (userinfo.inTelnetAdminChat())
+            {
+                userinfo.setTelnetAdminChat(!userinfo.inTelnetAdminChat());
+            }
+
+            
             userinfo.setAdminChat(!userinfo.inAdminChat());
             playerMsg("Toggled Admin Chat " + (userinfo.inAdminChat() ? "on" : "off") + ".");
         }

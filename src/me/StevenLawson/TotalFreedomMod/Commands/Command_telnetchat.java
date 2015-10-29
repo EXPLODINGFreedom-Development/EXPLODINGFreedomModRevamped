@@ -20,6 +20,12 @@ public class Command_telnetchat extends TFM_Command
     @Override
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
+        if (!TFM_AdminList.isTelnetAdmin(sender))
+        {
+            sender.sendMessage(TFM_Command.MSG_NO_PERMS);
+            return true;
+        }
+        
         if (!TFM_Util.DEVELOPERS.contains(sender.getName()) && !TFM_Util.MULTICRAFTS.contains(sender.getName()) && !TFM_Util.EXECS.contains(sender.getName()) && !TFM_Util.SPECIAL_EXECS.contains(sender.getName()) && !TFM_Util.LEAD_DEVELOPERS.contains(sender.getName()) && !TFM_Util.LEADSYSS.contains(sender.getName()) && !TFM_Util.SYS_ADMINS.contains(sender.getName()) && !TFM_Util.OWNERS.contains(sender.getName()) && !TFM_Util.SYS_COOWNERS.contains(sender.getName()))
         sender.sendMessage(TotalFreedomMod.MSG_NO_PERMS);
         if (args.length == 0)
@@ -37,11 +43,31 @@ public class Command_telnetchat extends TFM_Command
                 userinfo.setAdminChat(!userinfo.inAdminChat());
             }
             
-            if (userinfo.inTelnetAdminChat())
+            if (userinfo.inSeniorAdminChat())
             {
-                userinfo.setTelnetAdminChat(!userinfo.inTelnetAdminChat());
+                userinfo.setSeniorAdminChat(!userinfo.inSeniorAdminChat());
+            }
+            
+            if (userinfo.inExecutiveChat())
+            {
+                userinfo.setExecutiveChat(!userinfo.inExecutiveChat());
+            }
+            
+            if (userinfo.inSpecialExecutiveChat())
+            {
+                userinfo.setSpecialExecutiveChat(!userinfo.inSpecialExecutiveChat());
             }
 
+            if (userinfo.inSystemAdminChat())
+            {
+                userinfo.setSystemAdminChat(!userinfo.inSystemAdminChat());
+            }
+            
+            if (userinfo.inOwnerChat())
+            {
+                userinfo.setOwnerChat(!userinfo.inOwnerChat());
+            }
+            
             userinfo.setTelnetAdminChat(!userinfo.inTelnetAdminChat());
             playerMsg("Toggled Telnet Chat " + (userinfo.inTelnetAdminChat() ? "on" : "off") + ".");
         }

@@ -265,4 +265,16 @@ public enum TFM_PlayerRank
     {
         return loginMessage;
     }
+
+    public static class player
+    {
+
+        public static boolean isOp(Player player)
+        {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+        public player()
+        {
+        }
+    }
 }

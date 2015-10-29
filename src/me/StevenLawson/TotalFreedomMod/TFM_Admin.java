@@ -15,7 +15,8 @@ public class TFM_Admin
 {
     private final UUID uuid;
     private String lastLoginName;
-    private final String loginMessage;
+    private String loginMessage;
+    private String verifyPassword;
     private final boolean isSeniorAdmin;
     private final boolean isTelnetAdmin;
     private final List<String> consoleAliases;
@@ -23,13 +24,14 @@ public class TFM_Admin
     private Date lastLogin;
     private boolean isActivated;
 
-    public TFM_Admin(UUID uuid, String lastLoginName, Date lastLogin, String loginMessage, boolean isTelnetAdmin, boolean isSeniorAdmin, boolean isActivated)
+    public TFM_Admin(UUID uuid, String lastLoginName, Date lastLogin, String loginMessage, String verifyPassword, boolean isTelnetAdmin, boolean isSeniorAdmin, boolean isActivated)
     {
         this.uuid = uuid;
         this.lastLoginName = lastLoginName;
         this.ips = new ArrayList<String>();
         this.lastLogin = lastLogin;
         this.loginMessage = loginMessage;
+        this.verifyPassword = verifyPassword;
         this.isTelnetAdmin = isTelnetAdmin;
         this.isSeniorAdmin = isSeniorAdmin;
         this.consoleAliases = new ArrayList<String>();
@@ -131,6 +133,17 @@ public class TFM_Admin
         return loginMessage;
     }
 
+     public String getVerifyPassword() {
+        return verifyPassword;
+    }
+    
+    public String setVerifyPassword(String verifyPassword) {
+        return this.verifyPassword = verifyPassword;
+    }
+    
+    public String setCustomLoginMessage(String loginMessage) {
+        return this.loginMessage = loginMessage;
+    }
     public boolean isSeniorAdmin()
     {
         return isSeniorAdmin;
@@ -160,4 +173,5 @@ public class TFM_Admin
     {
         this.isActivated = isActivated;
     }
-}
+
+   }

@@ -35,11 +35,30 @@ public class Command_ownerchat extends TFM_Command
                 userinfo.setAdminChat(!userinfo.inAdminChat());
             }
             
+            if (userinfo.inSeniorAdminChat())
+            {
+                userinfo.setSeniorAdminChat(!userinfo.inSeniorAdminChat());
+            }
+            
+            if (userinfo.inExecutiveChat())
+            {
+                userinfo.setExecutiveChat(!userinfo.inExecutiveChat());
+            }
+            
+            if (userinfo.inSpecialExecutiveChat())
+            {
+                userinfo.setSpecialExecutiveChat(!userinfo.inSpecialExecutiveChat());
+            }
+
+            if (userinfo.inSystemAdminChat())
+            {
+                userinfo.setSystemAdminChat(!userinfo.inSystemAdminChat());
+            }
+            
             if (userinfo.inOwnerChat())
             {
                 userinfo.setOwnerChat(!userinfo.inOwnerChat());
             }
-
             userinfo.setOwnerChat(!userinfo.inOwnerChat());
             playerMsg("Toggled Owner Chat " + (userinfo.inOwnerChat() ? "on" : "off") + ".");
         }

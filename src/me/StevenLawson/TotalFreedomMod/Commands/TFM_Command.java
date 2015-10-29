@@ -2,6 +2,7 @@ package me.StevenLawson.TotalFreedomMod.Commands;
 
 import java.util.Collection;
 import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
+import com.efdevelopment.EXPLODINGFreedomModRevamped.misc.EFMR_BuilderList;
 import me.StevenLawson.TotalFreedomMod.TFM_Log;
 import me.StevenLawson.TotalFreedomMod.TFM_PlayerData;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
@@ -16,6 +17,7 @@ public abstract class TFM_Command
 {
     public static final String MSG_NO_PERMS = ChatColor.YELLOW + "You do not have permission to use this command.";
     public static final String YOU_ARE_OP = ChatColor.YELLOW + "You are now op!";
+     public static final String NOT_IMPOSTOR = ChatColor.GREEN + "Hey! You are not a impostor! No need to verify!";
     public static final String YOU_ARE_NOT_OP = ChatColor.YELLOW + "You are no longer op!";
     public static final String NOT_FROM_CONSOLE = "This command may not be used from the console.";
     public static final String PLAYER_NOT_FOUND = ChatColor.GRAY + "Player not found!";
@@ -71,7 +73,8 @@ public abstract class TFM_Command
             TFM_Log.warning(commandClass.getName() + " is missing permissions annotation.");
             return true;
         }
-
+        boolean isBuilder = EFMR_BuilderList.isBuilder(commandSender);
+        boolean isBuilderPlus = false;
         boolean isSuper = TFM_AdminList.isSuperAdmin(commandSender);
         boolean isSenior = false;
 
@@ -91,6 +94,14 @@ public abstract class TFM_Command
                 return false;
             }
 
+            if (level == AdminLevel.BUILDER && !isBuilder)
+            {
+                return false;
+            }
+          if (level == AdminLevel.BUILDERP && !isBuilderPlus)
+            {
+                return false;
+            }
             if (level == AdminLevel.SENIOR && !isSenior)
             {
                 return false;
