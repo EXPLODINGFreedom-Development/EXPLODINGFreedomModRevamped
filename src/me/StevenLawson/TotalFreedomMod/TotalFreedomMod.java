@@ -1,6 +1,5 @@
 package me.StevenLawson.TotalFreedomMod;
 
-import com.efdevelopment.EXPLODINGFreedomModRevamped.EFMR_Util;
 import com.google.common.base.Function;
 import java.io.File;
 import java.io.IOException;
@@ -45,7 +44,8 @@ public class TotalFreedomMod extends JavaPlugin
     public static int nukeMonitorCountBreak;
     public static boolean nukeMonitor;
     public static double nukeMonitorRange;
-    
+    static String BUILDER_FILENAME;
+
     public static String color(String join)
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -60,7 +60,6 @@ public class TotalFreedomMod extends JavaPlugin
     public static final String CONFIG_FILENAME = "config.yml";
     public static final String RULES_FILENAME = "rules.yml";
     public static final String SUPERADMIN_FILENAME = "superadmin.yml";
-    public static final String BUILDER_FILENAME = "builder.yml";
     public static final String PERMBAN_FILENAME = "permban.yml";
     public static final String UUID_FILENAME = "uuids.db";
     public static final String PROTECTED_AREA_FILENAME = "protectedareas.dat";
@@ -84,7 +83,6 @@ public class TotalFreedomMod extends JavaPlugin
     //
     public static boolean lockdownEnabled = false;
     public static Map<Player, Double> fuckoffEnabledFor = new HashMap<Player, Double>();
-    public EFMR_Util util;
 
     @Override
     public void onLoad()

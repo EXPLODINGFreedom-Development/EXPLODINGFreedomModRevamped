@@ -58,15 +58,11 @@ public class Command_world extends TFM_Command
         }
           if (mode.equals("adminworld"))
         {
-        server.dispatchCommand(sender, "adminworld");	
+        server.dispatchCommand(sender, "minigameworld");	
         }
           if (mode.equals("mgworld"))
         {
-         server.dispatchCommand(sender, "builderworld");	
-        }
-          if (mode.equals("builderworld"))
-        {
-            server.dispatchCommand(sender, "mgworld");
+         server.dispatchCommand(sender, "mgworld");
         }
           if (mode.equals("seniorworld"))     
          {      
@@ -82,9 +78,8 @@ public class Command_world extends TFM_Command
         TFM_Util.playerMsg(sender_p, "§6- §aMiniGamesWorld", ChatColor.GREEN);
         TFM_Util.playerMsg(sender_p, "§6- §aSeniorWorld", ChatColor.GREEN);
         TFM_Util.playerMsg(sender_p, "§6- §aFlatLands", ChatColor.GREEN);
-        TFM_Util.playerMsg(sender_p, "§6- §aBuilderWorld", ChatColor.GREEN);
         TFM_Util.playerMsg(sender_p, "To get to these do /adminworld for adminworld, /mgworld for minigames world, /flatlands for flatlands and /seniorworld for seniorworld.", ChatColor.GOLD);
-        TFM_Util.playerMsg(sender_p, "Any world in §cRed§6 means the world is not avalible, while any world in §eYellow§6 means it is unstable.", ChatColor.GOLD);
+        TFM_Util.playerMsg(sender_p, "Any world in §cRed§6 means the world is not avalible.", ChatColor.GOLD);
         TFM_Util.playerMsg(sender_p, "If you are a admin, and cant go to admin-only worlds, please contact a developer for help.", ChatColor.GOLD);
         
          return true;

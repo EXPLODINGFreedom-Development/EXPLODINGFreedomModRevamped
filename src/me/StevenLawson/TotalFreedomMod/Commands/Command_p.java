@@ -31,36 +31,11 @@ public class Command_p extends TFM_Command
                 userinfo.setAdminChat(!userinfo.inAdminChat());
             }
 
-            if (userinfo.inTelnetAdminChat())
-            {
-                userinfo.setTelnetAdminChat(!userinfo.inTelnetAdminChat());
-            }
-            
             if (userinfo.inSeniorAdminChat())
             {
                 userinfo.setSeniorAdminChat(!userinfo.inSeniorAdminChat());
             }
 
-            if (userinfo.inExecutiveChat())
-            {
-                userinfo.setExecutiveChat(!userinfo.inExecutiveChat());
-            }
-            
-            if (userinfo.inSpecialExecutiveChat())
-            {
-                userinfo.setSpecialExecutiveChat(!userinfo.inSpecialExecutiveChat());
-            }
-
-            if (userinfo.inSystemAdminChat())
-            {
-                userinfo.setSystemAdminChat(!userinfo.inSystemAdminChat());
-            }
-            
-            if (userinfo.inOwnerChat())
-            {
-                userinfo.setOwnerChat(!userinfo.inOwnerChat());
-            }
-            
             userinfo.setSeniorAdminChat(!userinfo.inSeniorAdminChat());
             playerMsg("Toggled Senior Admin Chat " + (userinfo.inSeniorAdminChat() ? "on" : "off") + ".");
         }

@@ -77,7 +77,7 @@ public class Command_chatlevel extends TFM_Command
          playerMsg("§9ChatLevel 4: Executive Chat");
          playerMsg("§aChatLevel 5: Special-Executive Chat");
          playerMsg("§4ChatLevel 6: System-Admin Chat");
-         playerMsg("§3ChatLevel 7: Owner/Co-Owner Chat");
+         playerMsg("§3ChatLevel 6: Owner/Co-Owner Chat");
          return true;
         }
     return true;

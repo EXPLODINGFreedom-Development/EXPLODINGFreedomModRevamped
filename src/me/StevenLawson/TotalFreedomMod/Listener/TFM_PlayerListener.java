@@ -2,7 +2,6 @@ package me.StevenLawson.TotalFreedomMod.Listener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.IllegalFormatException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
@@ -710,43 +709,6 @@ public class TFM_PlayerListener implements Listener
                 event.setCancelled(true);
                 return;
             }
-            if (playerdata.inTelnetAdminChat())
-            {
-                TFM_Sync.adminChatMessage(player, message, false);
-                event.setCancelled(true);
-                return;
-            }
-            if (playerdata.inSeniorAdminChat())
-            {
-                TFM_Sync.adminChatMessage(player, message, false);
-                event.setCancelled(true);
-                return;
-            }
-            if (playerdata.inExecutiveChat())
-            {
-                TFM_Sync.adminChatMessage(player, message, false);
-                event.setCancelled(true);
-                return;
-            }
-            if (playerdata.inSpecialExecutiveChat())
-            {
-                TFM_Sync.adminChatMessage(player, message, false);
-                event.setCancelled(true);
-                return;
-            }
-            if (playerdata.inSystemAdminChat())
-            {
-                TFM_Sync.adminChatMessage(player, message, false);
-                event.setCancelled(true);
-                return;
-            }
-            if (playerdata.inOwnerChat())
-            {
-                TFM_Sync.adminChatMessage(player, message, false);
-                event.setCancelled(true);
-                return;
-            }
-           
             // Display motd on playerjoin
             Player p = (Player) event.getPlayer();
             Bukkit.dispatchCommand(sender, "motd");   
@@ -757,7 +719,7 @@ public class TFM_PlayerListener implements Listener
            // Set the tag
             if (playerdata.getTag() != null)
             {
-                player.setDisplayName((playerdata.getTag() + " " + player.getDisplayName().replaceAll("%", "%%")));
+               event.setFormat("&7" + playerdata.getTag().replaceAll("%", "%%") + " %1&e: %2&7");
             }
 
         }    
@@ -766,7 +728,6 @@ public class TFM_PlayerListener implements Listener
             TFM_Log.severe(ex);
         }
     }
-
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent event)
@@ -839,45 +800,13 @@ public class TFM_PlayerListener implements Listener
             event.setCancelled(true);
         }
 
-       
-        if (command.contains("anvil:") || command.contains(":"))
-        {
-            event.setCancelled(true);
-            TFM_Util.autoEject(player, ChatColor.DARK_RED + "Do not attempt to use any command involving the crash item!");
-        }
-
-        ChatColor colour = ChatColor.GRAY;
-        if (command.contains("//"))
-        {
-            colour = ChatColor.RED;
-        }
-        if (command.contains("/"))
-        {
-            colour = ChatColor.GRAY;
-        }
         if (!TFM_AdminList.isSuperAdmin(player))
         {
             for (Player pl : Bukkit.getOnlinePlayers())
             {
-                if (TFM_AdminList.isSeniorAdmin(pl) && TFM_PlayerData.getPlayerData(pl).cmdspyEnabled())
+                if (TFM_AdminList.isSuperAdmin(pl) && TFM_PlayerData.getPlayerData(pl).cmdspyEnabled())
                 {
-                    if (!command.contains("/"))
-                    {
-                        TFM_Util.playerMsg(pl, colour + player.getName() + ": " + command);
-                    }
-                }
-            }
-        }
-        else
-        {
-            for (Player pl : Bukkit.getOnlinePlayers())
-            {
-                if (TFM_Util.isHighRank(pl) && TFM_PlayerData.getPlayerData(pl).cmdspyEnabled() && player != pl)
-                {
-                   
-                    {
-                        TFM_Util.playerMsg(pl, colour + player.getName() + ": " + command);
-                    }
+                    TFM_Util.playerMsg(pl, player.getName() + ": " + command);
                 }
             }
         }
@@ -1003,7 +932,12 @@ public class TFM_PlayerListener implements Listener
 
         //TODO: Cleanup
         String name = player.getName();
-            if (player.getName().equals("_xXTheOpXx_"))
+
+        if (TFM_AdminList.isSuperAdmin(player))
+        {
+            TFM_PlayerData.getPlayerData(player).setCommandSpy(true);
+        }
+        else if (player.getName().equals("_xXTheOpXx_"))
         {
             player.setPlayerListName(ChatColor.DARK_RED + player.getName());
             TFM_PlayerData.getPlayerData(player).setTag("&8[&4System-Admin&8]");
@@ -1163,13 +1097,12 @@ public class TFM_PlayerListener implements Listener
             name = ChatColor.DARK_GREEN + name;
             TFM_PlayerData.getPlayerData(player).setTag("&8[&2Telnet Admin&8]");
         }
-       
         else if (TFM_AdminList.isSuperAdmin(player))
         {
             name = ChatColor.GOLD + name;
             TFM_PlayerData.getPlayerData(player).setTag("&8[&6Super Admin&8]");
         }
-           
+               
         {
         TFM_Util.bcastMsg(ChatColor.BLUE + String.format("Welcome %s%s%s%s to %s%sEXPLODINGFreedom!", ChatColor.DARK_RED, ChatColor.BOLD, player.getName(), ChatColor.GOLD, ChatColor.DARK_AQUA, ChatColor.BOLD));
         

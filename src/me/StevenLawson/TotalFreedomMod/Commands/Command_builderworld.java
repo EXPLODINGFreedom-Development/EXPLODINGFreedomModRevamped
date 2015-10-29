@@ -2,13 +2,13 @@ package me.StevenLawson.TotalFreedomMod.Commands;
 
 import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
-import me.StevenLawson.TotalFreedomMod.World.TFM_BuilderWorld;
+import me.StevenLawson.TotalFreedomMod.World.TFM_AdminWorld;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(level = AdminLevel.BUILDER, source = SourceType.BOTH)
+@CommandPermissions(level = AdminLevel.ALL, source = SourceType.BOTH)
 @CommandParameters(description = "Go to the BuilderWorld.", usage = "/<command> [guest < list | purge | add <player> | remove <player> > | time <morning | noon | evening | night> | weather <off | on | storm>]")
 public class Command_builderworld extends TFM_Command
 {
@@ -61,7 +61,7 @@ public class Command_builderworld extends TFM_Command
                     World adminWorld = null;
                     try
                     {
-                        adminWorld = TFM_BuilderWorld.getInstance().getWorld();
+                        adminWorld = TFM_AdminWorld.getInstance().getWorld();
                     }
                     catch (Exception ex)
                     {
@@ -74,10 +74,10 @@ public class Command_builderworld extends TFM_Command
                     }
                     else
                     {
-                        if (TFM_BuilderWorld.getInstance().canAccessWorld(sender_p))
+                        if (TFM_AdminWorld.getInstance().canAccessWorld(sender_p))
                         {
                             playerMsg("Going to the BuilderWorld.");
-                            TFM_BuilderWorld.getInstance().sendToWorld(sender_p);
+                            TFM_AdminWorld.getInstance().sendToWorld(sender_p);
                         }
                         else
                         {
@@ -93,12 +93,12 @@ public class Command_builderworld extends TFM_Command
                     {
                         if ("list".equalsIgnoreCase(args[1]))
                         {
-                            playerMsg("BuilderWorld guest list: " + TFM_BuilderWorld.getInstance().guestListToString());
+                            playerMsg("BuilderWorld guest list: " + TFM_AdminWorld.getInstance().guestListToString());
                         }
                         else if ("purge".equalsIgnoreCase(args[1]))
                         {
                             assertCommandPerms(sender, sender_p);
-                            TFM_BuilderWorld.getInstance().purgeGuestList();
+                            TFM_AdminWorld.getInstance().purgeGuestList();
                             TFM_Util.adminAction(sender.getName(), "BuilderWorld guest list purged.", false);
                         }
                         else
@@ -120,7 +120,7 @@ public class Command_builderworld extends TFM_Command
                                 return true;
                             }
 
-                            if (TFM_BuilderWorld.getInstance().addGuest(player, sender_p))
+                            if (TFM_AdminWorld.getInstance().addGuest(player, sender_p))
                             {
                                 TFM_Util.adminAction(sender.getName(), "BuilderWorld guest added: " + player.getName(), false);
                             }
@@ -131,7 +131,7 @@ public class Command_builderworld extends TFM_Command
                         }
                         else if ("remove".equals(args[1]))
                         {
-                            final Player player = TFM_BuilderWorld.getInstance().removeGuest(args[2]);
+                            final Player player = TFM_AdminWorld.getInstance().removeGuest(args[2]);
                             if (player != null)
                             {
                                 TFM_Util.adminAction(sender.getName(), "BuilderWorld guest removed: " + player.getName(), false);
@@ -155,10 +155,10 @@ public class Command_builderworld extends TFM_Command
 
                     if (args.length == 2)
                     {
-                        TFM_BuilderWorld.TimeOfDay timeOfDay = TFM_BuilderWorld.TimeOfDay.getByAlias(args[1]);
+                        TFM_AdminWorld.TimeOfDay timeOfDay = TFM_AdminWorld.TimeOfDay.getByAlias(args[1]);
                         if (timeOfDay != null)
                         {
-                            TFM_BuilderWorld.getInstance().setTimeOfDay(timeOfDay);
+                            TFM_AdminWorld.getInstance().setTimeOfDay(timeOfDay);
                             playerMsg("BuilderWorld time set to: " + timeOfDay.name());
                         }
                         else
@@ -179,10 +179,10 @@ public class Command_builderworld extends TFM_Command
 
                     if (args.length == 2)
                     {
-                        TFM_BuilderWorld.WeatherMode weatherMode = TFM_BuilderWorld.WeatherMode.getByAlias(args[1]);
+                        TFM_AdminWorld.WeatherMode weatherMode = TFM_AdminWorld.WeatherMode.getByAlias(args[1]);
                         if (weatherMode != null)
                         {
-                            TFM_BuilderWorld.getInstance().setWeatherMode(weatherMode);
+                            TFM_AdminWorld.getInstance().setWeatherMode(weatherMode);
                             playerMsg("BuilderWorld weather set to: " + weatherMode.name());
                         }
                         else

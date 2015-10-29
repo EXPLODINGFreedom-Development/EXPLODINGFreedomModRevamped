@@ -40,26 +40,6 @@ public class Command_syschat extends TFM_Command
                 userinfo.setSystemAdminChat(!userinfo.inSystemAdminChat());
             }
 
-            if (userinfo.inSeniorAdminChat())
-            {
-                userinfo.setSeniorAdminChat(!userinfo.inSeniorAdminChat());
-            }
-            
-            if (userinfo.inExecutiveChat())
-            {
-                userinfo.setExecutiveChat(!userinfo.inExecutiveChat());
-            }
-            
-            if (userinfo.inSpecialExecutiveChat())
-            {
-                userinfo.setSpecialExecutiveChat(!userinfo.inSpecialExecutiveChat());
-            }
-
-            if (userinfo.inOwnerChat())
-            {
-                userinfo.setOwnerChat(!userinfo.inOwnerChat());
-            }
-            
             userinfo.setSystemAdminChat(!userinfo.inSystemAdminChat());
             playerMsg("Toggled System-Admin Chat " + (userinfo.inSystemAdminChat() ? "on" : "off") + ".");
         }

@@ -32,8 +32,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import me.StevenLawson.TotalFreedomMod.Config.TFM_Config;
 import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
-import static me.StevenLawson.TotalFreedomMod.TFM_EternalBanList.HARDCODE;
-import static me.StevenLawson.TotalFreedomMod.TFM_EternalBanList.HARDCODE_IPS;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.Bukkit;
@@ -1147,10 +1145,8 @@ public class TFM_Util
 
         for (Player player : Bukkit.getOnlinePlayers())
         {
-            if (TFM_Util.MULTICRAFTS.contains(player))
             if (TFM_AdminList.isSuperAdmin(player))
-             
-                        {
+            {
                 player.sendMessage("[" + ChatColor.DARK_GREEN + "TELNET-ADMIN" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + name + ": " + ChatColor.GREEN + message);
             }
         }
@@ -1162,13 +1158,7 @@ public class TFM_Util
 
         for (Player player : Bukkit.getOnlinePlayers())
         {
-            if (TFM_Util.OWNERS.contains(player))
-            if (TFM_Util.EXECS.contains(player))
-            if (TFM_Util.SYS_ADMINS.contains(player))
-            if (TFM_Util.DEVELOPERS.contains(player))
-            if (TFM_Util.LEAD_DEVELOPERS.contains(player))
-            if (TFM_Util.SPECIAL_EXECS.contains(player))
-            if (TFM_Util.SYS_COOWNERS.contains(player))
+            if (TFM_AdminList.isSeniorAdmin(player))
             {
                 player.sendMessage("[" + ChatColor.BLUE + "EXECUTIVE" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + name + ": " + ChatColor.GOLD + message);
             }
@@ -1181,11 +1171,7 @@ public class TFM_Util
 
         for (Player player : Bukkit.getOnlinePlayers())
         {
-            if (TFM_Util.OWNERS.contains(player))
-            if (TFM_Util.SYS_ADMINS.contains(player))
-            if (TFM_Util.LEAD_DEVELOPERS.contains(player))
-            if (TFM_Util.SPECIAL_EXECS.contains(player))
-            if (TFM_Util.SYS_COOWNERS.contains(player))
+            if (TFM_AdminList.isSeniorAdmin(player))
             {
                 player.sendMessage("[" + ChatColor.GREEN + "SPECIAL-EXECUTIVE" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + name + ": " + ChatColor.GOLD + message);
             }
@@ -1198,8 +1184,7 @@ public class TFM_Util
 
         for (Player player : Bukkit.getOnlinePlayers())
         {
-            if (TFM_Util.OWNERS.contains(player))
-            if (TFM_Util.SYS_COOWNERS.contains(player))
+            if (TFM_AdminList.isSeniorAdmin(player))
             {
                 player.sendMessage("[" + ChatColor.DARK_RED + "OWNER" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + name + ": " + ChatColor.DARK_AQUA + message);
             }
@@ -1212,9 +1197,7 @@ public class TFM_Util
 
         for (Player player : Bukkit.getOnlinePlayers())
         {
-            if (TFM_Util.OWNERS.contains(player))
-            if (TFM_Util.SYS_ADMINS.contains(player))
-            if (TFM_Util.SYS_COOWNERS.contains(player))
+            if (TFM_AdminList.isSeniorAdmin(player))
             {
                 player.sendMessage("[" + ChatColor.DARK_RED + "SYSTEM-ADMIN" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + name + ": " + ChatColor.DARK_AQUA + message);
             }
