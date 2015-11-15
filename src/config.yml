@@ -29,12 +29,17 @@ server:
 
 # This section requires the EssentialsChat.jar to work.
 
-  chat:
-  #This formats the chat to be displayed as whatever format you like.
-  #This is intended to customize the basic vanilla chat to something more special, and one-of-a-kind.
-  
-  format: '&7{DISPLAYNAME} &e: &7{MESSAGE}'
-  #format: '&7[{GROUP}]&r {DISPLAYNAME}&7:&r {MESSAGE}'
+#VoteLinks configuration
+ #If you have vote links set up for your server, you can put up to 8 of those links here, so you can have people vote and get goodies!
+
+  votelink1: http://minecraft-mp.com/server/97579/vote/
+  votelink2: http://minecraft-server-list.com/server/318171/vote/
+  votelink3: null
+  votelink4: null
+  votelink5: null
+  votelink6: null
+  votelink7: null
+  votelink8: null    
 
 # ForceIP configuration
 forceip:
@@ -99,10 +104,7 @@ blocked_commands:
   - 'n:b:/ban:_'
   - 'n:b:/difficulty:_'
   - 'n:b:/setdifficulty:_'
-  - 'n:b:/pardon:_'
-  - 'n:b:/ban-ip:_'
   - 'n:b:/banip:_'
-  - 'n:b:/pardon-ip:_'
   - 'n:b:/pardonip:_'
   - 'n:b:/toggledownfall:_'
   - 'n:b:/effect:Please use /potion to set effects.'
@@ -119,13 +121,8 @@ blocked_commands:
   - 'n:b:/toggledownfall:_'
   - 'n:b:/jail:Nice try! How about /cage?'
   - 'n:b:/nuke_'
-  - 'n:b:/gamemode:Use /creative, /gmc, /gms and /survival to set your gamemode.'
-  - 'n:b:/gamerule:_'
   - 'n:b:/fg:_'
   - 'n:b:/kickall:_'
-  - 'n:b:/bc:This is a admin only command.'
-  - 'n:b:/broadcast:This is a admin only command.'
-  - 'n:b:/bcast:This is a admin only command.'
   - 'n:b:/banlist:Did you mean "/tfbanlist"'
   - 'n:b:/ipbanlist:Did you mean "/tfipbanlist"'
   - 'n:b:/fopm:_'
@@ -134,13 +131,14 @@ blocked_commands:
  
 
   # Superadmin commands
+  - 's:b:/sudo:Nope.'
   - 's:b:/deopall:_'
   - 's:b:/kick:_'
+  - 's:b:/mute:_'
   - 's:b:/superpickaxe:_'
-  - 's:b:/tpall:/tpall sucks! STOP USING IT!'
   - 's:b:/brush:_'
   - 's:b:/mat:_'
-  - 's:b:/tool:_'
+  - 's:b://floodfill:&cThis command is used to make undetectable grief, so its blocked.'
   - 's:b://butcher:_'
   - 's:b:/scoreboard:Sorry, this command for for Super Administrators and above.'
   - 's:b:/setspawn:You are able to perform "/sethome" instead.'
@@ -148,6 +146,10 @@ blocked_commands:
   - 's:b:/tpohere:Please use "/tpahere" instead of "/tpohere"'
   - 's:b:/tphere:Please use "/tpahere" instead of "/tphere"'
   - 'n:b:/cbtool:That will result in a Permban, k?'
+  - 'n:u:/cb:_'
+  - 'n:b:/fopm:_'
+  - 'n:b:/tpall:/tpall sucks! STOP USING IT!'
+  - 'n:b:/mute:nice try! How about /stfu'
   - 's:b:/npc_'
   - 's:b:/citizens:_'
   - 's:b://generate:_'
@@ -156,15 +158,10 @@ blocked_commands:
   - 's:b:/core:Ask an admin to roll it back for you instead!'
   - 's:b:/socialspy:_'
   - 's:b:/kill:_'
-  - 's:b://generate:_'
   - 's:b://:_'
-  - 's:b:/superpickaxe:_'
   - 's:b:/size:_'
-  - 's:b:/tool:_'
-  - 's:b://butcher:_'
+  - 's:b://mask:_'
   - 's:b:/killall:_'
-  - 's:b:/heal:_'
-  - 's:b:/scoreboard:_'
   - 's:b:/setspawn:_'
   - 's:b://snow:_'
   - 's:b:/tellraw:_'
@@ -172,20 +169,19 @@ blocked_commands:
   - 's:b:/setidletimeout:_'
   - 's:b:/setworldspawn:_'
   - 's:b:/eco reset:_'
+  - 's:b:/mask:_'
+  - 's:b:/gmask:_'
   - 's:b:/floodfill:_'
-  - 's:b:/tool:_'
-  - 's:b:/v:&cThis command is blocked due to the increase of invis grief, so it is admins only.'
-  - 's:b:/vanish:&cThis command is blocked due to the increase of invis grief, so it is admins only.'
+  - 's:b:/v:&4Invis is not allowed!'
+  - 's:b:/vanish:&4Invis is not allowed!'
   - 's:b:/lrbuild:_'
   - 's:b:/defaultgamemode:_'
   - 's:b:/firstjoinplus:_'
-  - 's:b:/worldborder:_'
-  - 's:b:/weather:_'
-  - 's:b:/setblock:_'
-  - 's:b:/green:_'
-  - 'n:b:/gamerule:_'
-  - 'n:b:/togglejail:_'
-  - 's:b:/execute:&cNo, you will not use this to admin yourself.'
+  - 's:b:/tool:/tool can be used to grief, so this is blocked.'
+  - 's:b://brush://brush can be used to grief, so this is blocked.'
+  - 's:b:/execute:&cOPs can exploit this to use admin commands, so this is blocked.'
+  - 's:b://fill:This command can be used to grief, so this is blocked.'
+  - 's:b:/fill:This command can be used to grief, so this is blocked.'
   
   
   

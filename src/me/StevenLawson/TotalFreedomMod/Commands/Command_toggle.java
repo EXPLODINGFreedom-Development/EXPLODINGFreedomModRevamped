@@ -19,6 +19,7 @@ public class Command_toggle extends TFM_Command
         if (args.length == 0)
         {
             playerMsg("Available toggles: ");
+            playerMsg("- chaos");
             playerMsg("- waterplace");
             playerMsg("- fireplace");
             playerMsg("- lavaplace");
@@ -34,6 +35,12 @@ public class Command_toggle extends TFM_Command
             return false;
         }
 
+        if (args[0].equals("chaos"))
+        {
+            toggle("Chaos is", TFM_ConfigEntry.ENABLE_CHAOS);
+            return true;
+        }
+        
         if (args[0].equals("waterplace"))
         {
             toggle("Water placement is", TFM_ConfigEntry.ALLOW_WATER_PLACE);
@@ -159,6 +166,6 @@ public class Command_toggle extends TFM_Command
 
     private void toggle(String name, TFM_ConfigEntry entry)
     {
-        playerMsg(name + " now " + (entry.setBoolean(!entry.getBoolean()) ? "enabled." : "disabled."));
+        playerMsg(name + " now " + (entry.setBoolean(!entry.getBoolean()) ? "§aenabled§7." : "§cdisabled§7."));
     }
 }

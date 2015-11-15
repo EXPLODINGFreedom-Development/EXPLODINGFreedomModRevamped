@@ -1,5 +1,6 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
+import me.StevenLawson.TotalFreedomMod.TFM_Builder;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -117,7 +118,13 @@ public class Command_logs extends TFM_Command
             updateLogsRegistration(null, superadmin.getLastLoginName(), ip, Command_logs.LogsRegistrationMode.DELETE);
         }
     }
-
+public static void deactivateBuilder(TFM_Builder builder)
+    {
+        for (String ip : builder.getIps())
+        {
+            updateLogsRegistration(null, builder.getLastLoginName(), ip, Command_logs.LogsRegistrationMode.DELETE);
+        }
+    }
     public static enum LogsRegistrationMode
     {
         UPDATE("update"), DELETE("delete");

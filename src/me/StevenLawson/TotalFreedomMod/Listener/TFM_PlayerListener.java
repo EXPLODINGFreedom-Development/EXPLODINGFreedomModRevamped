@@ -719,15 +719,16 @@ public class TFM_PlayerListener implements Listener
            // Set the tag
             if (playerdata.getTag() != null)
             {
-               event.setFormat("&7" + playerdata.getTag().replaceAll("%", "%%") + " %1&e: %2&7");
+                player.setDisplayName((playerdata.getTag() + " " + player.getDisplayName().replaceAll(" ", "")));
             }
 
-        }    
+        }
         catch (Exception ex)
         {
             TFM_Log.severe(ex);
         }
     }
+
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent event)

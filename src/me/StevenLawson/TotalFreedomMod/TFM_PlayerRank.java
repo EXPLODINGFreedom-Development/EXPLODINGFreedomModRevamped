@@ -1,5 +1,6 @@
 package me.StevenLawson.TotalFreedomMod;
 
+import me.StevenLawson.TotalFreedomMod.TFM_BuilderList;
 import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import static me.StevenLawson.TotalFreedomMod.TFM_Util.DEVELOPERS;
 import static me.StevenLawson.TotalFreedomMod.TFM_Util.FOP_DEVELOPERS;
@@ -33,6 +34,7 @@ public enum TFM_PlayerRank
     HONORARY("a " + ChatColor.YELLOW + "Honorary Senior Administrator", ChatColor.YELLOW + "[Honorary-SrA]"),
     SUPER("a " + ChatColor.GOLD + "Super Admin", ChatColor.GOLD + "[SA]"),
     WEBDEV("a " + ChatColor.RED + "Web Developer", ChatColor.RED + "[Web-Dev]"),
+    BUILDERPLUS("a " + ChatColor.GOLD + "Master-Builder+", ChatColor.RED + "[Master-Builder+]"),
     LEADSYS("the " + ChatColor.DARK_RED + "Lead System-Admin", ChatColor.DARK_RED + "[Lead-SyS]"),
     TELNET("a " + ChatColor.DARK_GREEN + "Super Telnet Admin", ChatColor.DARK_GREEN + "[STA]"),
     LEADWEBDEV("the " + ChatColor.DARK_PURPLE + "Lead Forum Developer", ChatColor.DARK_PURPLE + "[Lead Forum-Dev]"),
@@ -218,6 +220,16 @@ public enum TFM_PlayerRank
             return DEVELOPER;
         }
         
+        else if (TFM_BuilderList.isBuilder(sender))
+        {
+            return BUILDER;
+        }
+
+        else if (TFM_BuilderList.isBuilderPlus(sender))
+        {
+            return BUILDERPLUS;
+        }
+       
         final TFM_Admin entry = TFM_AdminList.getEntry((Player) sender);
 
         final TFM_PlayerRank rank;

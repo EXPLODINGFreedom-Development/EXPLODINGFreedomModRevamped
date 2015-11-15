@@ -1,0 +1,18 @@
+#
+# MasterBuilder List
+#
+
+clean_threshold_hours: 168
+
+builder:
+  1156a81a-23fb-435e-9aff-fe9c2ea7e82d:
+    last_login_name: Madgeek1450
+    is_activated: true
+    is_builder_plus: true
+    console_aliases: []
+    ips:
+    - 1.2.3.4
+    - 8.8.8.8
+    last_login: Tue, 15 Apr 2014 16:01:24 +0200
+    custom_login_message: ''
+  
