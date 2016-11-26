@@ -1,0 +1,402 @@
+#
+# EXPLODINGFreedomMod v4.3 Configuration
+# by Madgeek1450 and Prozza
+# modified by Alco_Rs11
+#
+
+# Generic server information
+server:
+  # You should change this to your server's name
+  name: EXPLODINGFreedom
+
+  # The address your server is located at
+  address: explodingfreedom.fadehost.com
+
+  # Shown at the server list
+  motd: EXPLODINGFreedom All-OP - Spigot Versions 1.7 & 1.8 Vist us online at http://explodingfreedom.boards.net
+
+  # Every word in the MOTD will be a different color unless prefixed by a color code
+  colorful_motd: true
+  # All players who show up as owner
+  owners: 
+    - Alco_Rs11
+  
+  # Who compiled the EFM:R/TFM on your server? Easier than using buildcreator.properties.
+  compiled_by: 
+    - Alco_Rs11
+ 
+  # URL players should appeal for bans at
+  ban_url: http://explodingfreedom.boards.net
+
+  # URL players should appeal for permanent bans at
+  permban_url: http://explodingfreedom.boards.net
+
+ # /ai and /admininfo usage. (if set to false, players cant do /ai or /admininfo. (used to denote admin application freezes.)
+  applications_disabled: false
+#VoteShop configuration
+ #If you wish to have a shop were players can use currency given by voting, keep this enabled.
+voteshop:
+    enabled: true
+#VoteLinks configuration
+ #If you have vote links set up for your server, you can put up to 8 of those links here, so you can have people vote and get goodies!
+votelinks:
+ #Set up to 8 votelinks.
+  votelink1: 
+   - 'http://minecraft-mp.com/server/97579/vote/'
+  votelink2: 
+   - 'http://minecraft-server-list.com/server/318171/vote/'
+  votelink3: 
+   - null
+  votelink4: 
+   - null
+  votelink5: 
+   - null
+  votelink6: 
+   - null
+  votelink7: 
+   - null
+  votelink8: 
+   - null    
+
+# ForceIP configuration
+forceip:
+  enabled: false
+
+  # The port players should use to connect to your server; only applies to forceip
+  port: 25565
+
+  # The kick message sent to players when logging in with the wrong hostname
+  kickmsg: You have been kicked from the server - Please connect using %address%
+
+  
+  # Blocking certain events
+allow:
+  fire_place: false
+  fire_spread: false
+  fluid_spread: false
+  lava_place: false
+  lava_damage: false
+  water_place: false
+  tnt_minecarts: false
+  explosions: false
+  cmdblock_place: false
+
+# Blocked commands:
+#
+# How blocked commands work:
+# All sections described below are delimited by colon characters.
+# Make sure that you block a command by its main command name, not an alias
+# -as all aliases are blocked by default. Commands are case-insensitive.
+#
+# * The first section is a letter which indicates which rank may use this command
+#   Valid ranks:
+#   n - Nobody (Completely disabled)
+#   c - Senior Admins (Console)
+#   t - Telnet Admins (Console)
+#   s - Super Admins (Any in-game admin)
+#   o - Ops (Non-Ops won't be able to use it)
+#
+# * The second section is a letter which indicates what to do when a player executes that command.
+#   Valid actions:
+#   b - Block the command
+#   a - Block the command and auto-eject that player (for ops and below)
+#   u - Block the command and Return an "Unknown command" message (Used to hide commands)
+#
+# * The third section is the command to be blocked, prefixed with a slash
+#
+# * The fourth section is the message to send to the player when executing that command.
+#   This should be ommited if unwanted. ChatColors are supported with the &-key. By default
+#   -the starting ChatColor is set to gray. You can use the default 'That command is blocked.' message
+#   by using a single underscore.
+#
+# Examples:
+#   - 'n:b:/mail sendall:&4You can't send mails to everyone!'
+#   - 's:a:/stop'
+#   - 'n:b:/ban:_'
+#
+blocked_commands:
+  # Disabled commands
+  - 'n:b:/time:Server-side time changing is disabled. Please use /ptime to set your own personal time.'
+  - 'n:b:/gamerule:_'
+  - 'n:b:/ban:_'
+  - 'n:b:/difficulty:_'
+  - 'n:b:/setdifficulty:_'
+  - 'n:b:/banip:_'
+  - 'n:b:/pardonip:_'
+  - 'n:b:/toggledownfall:_'
+  - 'n:b:/effect:Please use /potion to set effects.'
+  - 'n:b:/enderchest:_'
+  - 'n:b:/echest:_'
+  - 'n:b:/spreadplayers:_'
+  - 'n:b:/pt:_'
+  - 'n:b:/powertool:Powertools suck stop using them'
+  - 'n:b:/ept:Powertools suck stop using them'
+  - 'n:b:/epowertool:Powertools suck stop using them'
+  - 'n:b:/pardon:_'
+  - 'n:b:/ban-ip:_'
+  - 'n:b:/pardon-ip:Nice try, how about "/glist unban"'
+  - 'n:b:/toggledownfall:_'
+  - 'n:b:/jail:Nice try! How about /cage?'
+  - 'n:b:/nuke_'
+  - 'n:b:/fg:_'
+  - 'n:b:/kickall:_'
+  - 'n:b:/banlist:Did you mean "/tfbanlist"'
+  - 'n:b:/ipbanlist:Did you mean "/tfipbanlist"'
+  - 'n:b:/fopm:_'
+  - 'n:u:/cb:_'
+  - 'n:b:/mute:nice try! How about /stfu'
+  
+  
+ 
+
+  # Superadmin commands
+  - 's:b:/summon:/summon can be used to crash the server, so it is blocked.'
+  - 's:b:/setblock:/setblock can be used to place crash items, so it is blocked.'
+  - 's:b:/sudo:Nope.'
+  - 's:b:/deopall:_'
+  - 's:b:/kick:_'
+  - 's:b:/mute:_'
+  - 's:b:/superpickaxe:_'
+  - 's:b:/brush:_'
+  - 's:b:/mat:_'
+  - 's:b://floodfill:&cThis command is used to make undetectable grief, so its blocked.'
+  - 's:b://butcher:_'
+  - 's:b:/scoreboard:Sorry, this command for for Super Administrators and above.'
+  - 's:b:/setspawn:You are able to perform "/sethome" instead.'
+  - 's:b:/co:You may report grief to any online administrator, just scream it...'
+  - 's:b:/tpohere:Please use "/tpahere" instead of "/tpohere"'
+  - 's:b:/tphere:Please use "/tpahere" instead of "/tphere"'
+  - 'n:b:/cbtool:That will result in a Permban, k?'
+  - 'n:b:/fopm:_'
+  - 'n:b:/tpall:/tpall sucks! STOP USING IT!'
+  - 'n:b:/mute:nice try! How about /stfu'
+  - 's:b:/npc_'
+  - 's:b:/citizens:_'
+  - 's:b://generate:_'
+  - 's:b:/coreprotect:Ask an admin to roll it back for you instead!'
+  - 's:b:/core:Ask an admin to roll it back for you instead!'
+  - 's:b:/socialspy:_'
+  - 's:b:/kill:_'
+  - 's:b://:_'
+  - 's:b:/size:_'
+  - 's:b://mask:_'
+  - 's:b:/killall:_'
+  - 's:b:/setspawn:_'
+  - 's:b://snow:_'
+  - 's:b:/tellraw:_'
+  - 's:b:/forestgen:_'
+  - 's:b:/setidletimeout:_'
+  - 's:b:/setworldspawn:_'
+  - 's:b:/eco reset:_'
+  - 's:b:/mask:_'
+  - 's:b:/gmask:_'
+  - 's:b:/floodfill:_'
+  - 's:b:/v:&4Invis is not allowed!'
+  - 's:b:/vanish:&4Invis is not allowed!'
+  - 's:b:/lrbuild:_'
+  - 's:b:/defaultgamemode:_'
+  - 's:b:/firstjoinplus:_'
+  - 's:b:/tool:/tool can be used to grief, so this is blocked.'
+  - 's:b://brush://brush can be used to grief, so this is blocked.'
+  - 's:b:/execute:&cOPs can exploit this to use admin commands, so this is blocked.'
+  - 's:b://fill:This command can be used to grief, so this is blocked.'
+  - 's:b:/fill:This command can be used to grief, so this is blocked.'
+  
+  
+  
+
+  # Superadmin commands - Auto-eject
+  - 's:a:/nuke:_'
+  - 's:a:/stop:_'
+  - 's:a:/reload:_'
+  - 's:a:/save-all:_'
+  - 's:a:/save-on:_'
+  - 's:a:/save-off:_'
+  - 's:a:/clearhistory:_'
+  - 's:a://brush:_'
+  - 's:a://br:_'
+  - 's:a:/mat:_'
+  - 's:a:/mask:_'
+  - 's:a://mask:_'
+  - 's:a:/gmask:_'
+  - 's:a://gmask:_'
+  - 's:a:/br:_'
+  
+
+  # Spigot commands
+  - 's:a:/restart:_'
+  - 's:b:/setblock:_'
+
+# Automatically wipe dropped objects
+auto_wipe: true
+
+# Nuking prevention
+nukemonitor:
+  enabled: true
+  count_break: 100
+  count_place: 40
+  range: 10.0
+
+freecam_trigger_count: 10
+explosive_radius: 4.0
+
+# Show all attempted commands in the log, will result in duplicate log messages
+preprocess_log: true
+
+# Disable certain events
+disable:
+  night: true
+  weather: true
+
+
+# Enable misc. features
+landmines_enabled: false
+mp44_enabled: false
+tossmob_enabled: false
+adminworld_enabled: true
+
+# Moblimiter
+moblimiter:
+  enabled: true
+  max: 50
+  disable:
+    dragon: true
+    ghast: true
+    slime: true
+    giant: true
+
+# Flatlands
+flatlands:
+  generate: true
+
+  # Flatlands generation parameters - Uses CleanroomGenerator syntax - http://dev.bukkit.org/server-mods/cleanroomgenerator/
+  generate_params: 16,stone,32,dirt,1,grass
+
+# Admin-Only Mode
+admin_only_mode: false
+training_mode: false
+enable_chaos: false
+
+# Protected Areas - Protect areas so that only superadmins can directly modify blocks in those areas. WorldEdit and other such plugins might bypass this.
+protectarea:
+  enabled: true
+  auto_protect_spawnpoints: true
+  auto_protect_radius: 25.0
+
+# Give the default CONSOLE senior admin privileges.
+# Handy in development environments.
+console_is_senior: true
+
+# Host Sender Names - Names that indicate automated services or host-based consoles you want to block from using some commands.
+# Make sure these are all lower-case.
+host_sender_names:
+  - rcon
+  - remotebukkit
+
+# Announcer
+announcer:
+  enabled: true
+
+  # Interval between announcements, in seconds.
+  interval: 50
+
+  # Prefix for all announcements
+  prefix: '&8[&4EXPLODINGFreedom&8] &b'
+
+  announcements:
+    - 'Be sure to visit our forums at &6http://explodingfreedom.boards.net/'
+    - 'You can always review the server rules here: &6http://http://explodingfreedom.boards.net/'
+    - 'If you aren''t OP, be sure to ask our friendly staff!'
+    - 'Remember that &cgriefing &bis forbidden, and you will be punished if you get caught!'
+    - 'Always respect staff and dont disrespect them!'
+    - 'The &4Owner &bis &1&lAlco_Rs11, The Co Owners are &6&lKM_Galahad &band &e&ljayscoob!'
+    - 'If you wish to apply do /ai, /apply or /admininfo and follow the instructions!'
+    - 'Having Fun? Go tell your Friends!'
+    - 'Remember to remember the rules and help out!'
+    - 'Hacking and &eDDoS/DOX/DoS&b threats are &4not&b allowed'
+    - '&3Invisibility Potions&b are for &4EF Staff&b only and if a &cOP&b is caught with it they will be punished!'
+    - 'Our &cChief Of Security&b is &c&lLifeitel&b!'
+    - 'Remember to use &e/report <playrname> <reason> &bon rule breaking players and the staff will deal with them!'
+    - 'For advertising, use &2THIS&b IP to tell others to join: &eplay.explodingfreedom.fadehost.com&b'
+    - 'Serial griefing and trolling will result in permanently being banned!'
+    - 'Racism, Nazism, and Sexism is strictly forbidden!'
+
+# Players who cannot be banned by username
+unbannable_usernames:
+  - honeydew
+  - xephos
+  - captainsparklez
+  - truemu
+  - kiershar
+  - fvdisco
+  - sethbling
+  - notch
+  - jeb_
+  - gamechap
+  - bertiechap
+  - vechs
+  - antvenom
+  - chimneyswift
+  - deadmau5
+  - etho
+  - ethoslab
+  - skydoesminecraft
+  - skythekidrs
+  - tobyturner
+  - xxslyfoxhoundxx
+  - paulsoaresjr
+  - sips_
+  - deadlox
+  - xxslyxx
+  - jeromeasf
+  - dinnerbone
+  - grumm
+  - grum
+  - evilseph
+  - cavemanfilms
+  - herobrine
+  - whiteboy7thst
+  - stampylonghead
+  - stampylongnose
+  - dantdm
+  - gizzy14gazza
+
+# IPs that can not be supered
+noadmin_ips:
+  - 49.32.0.135
+
+# DoomHammer
+dhammer_mode: true
+
+# Pet Protect - Prevent tamed pets from being killed.
+petprotect:
+  enabled: true
+
+# Logviewer
+logs:
+  url: 'http://explodingfreedom.web.fade.pw/register.php'
+  secret: 'ThisIsaLogviewerpassword'
+
+# Mojang service checker
+service_checker_url: http://status.mojang.com/check
+
+# HTTPD server
+httpd:
+  enabled: true
+  port: 26759
+  public_folder: ./public_html
+
+# Inactivity Auto-Kick (Requires Essentials)
+autokick:
+  enabled: true
+
+  # autokick_threshold - Percentage of server player capacity used at which players will be automatically kicked for being inactive. Range: 0.0 - 1.0
+  threshold: 0.9
+
+  # autokick_time - Time, in seconds, after which a player should be kicked when inactive
+  time: 120
+  
+# Players with access to the overlord command
+overlord_ips:
+   - 68.196.96.20
+

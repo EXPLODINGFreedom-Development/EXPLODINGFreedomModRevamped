@@ -1,0 +1,59 @@
+#
+# SuperAdmin List
+#
+
+clean_threshold_hours: 168
+
+admins:
+  652b83cf-42a5-4a68-919a-383bf82bfe79:
+    last_login_name: evanator324
+    is_activated: true
+    is_telnet_admin: true
+    is_senior_admin: true
+    last_login: Sat, 16 Jan 2016 18:41:28 -0500
+    custom_login_message: ''
+    console_aliases: []
+    ips:
+    - 63.143.232.216
+    - 50.29.96.230
+  deadbeef-23a2-2c2b-7517-84a655b42523:
+    last_login_name: Alco_Rs11
+    is_activated: true
+    is_telnet_admin: true
+    is_senior_admin: true
+    last_login: Sun, 17 Jan 2016 16:19:07 -0500
+    custom_login_message: ''
+    console_aliases: []
+    ips:
+    - 68.196.97.59
+  9cc1d474-b3b1-438b-814d-58cfd23c5a82:
+    last_login_name: hiram2238
+    is_activated: true
+    is_telnet_admin: false
+    is_senior_admin: false
+    last_login: Sun, 17 Jan 2016 14:52:46 -0500
+    custom_login_message: ''
+    console_aliases: []
+    ips:
+    - 24.188.3.81
+  deadbeef-df44-0ca0-cc5f-1317ea29af21:
+    last_login_name: SilverDriftwood
+    is_activated: true
+    is_telnet_admin: false
+    is_senior_admin: false
+    last_login: Sun, 17 Jan 2016 16:43:10 -0500
+    custom_login_message: ''
+    console_aliases: []
+    ips:
+    - 99.249.34.24
+    - 72.38.107.2
+  deadbeef-1978-3460-57cc-7c09d86a4a17:
+    last_login_name: Wild_
+    is_activated: false
+    is_telnet_admin: true
+    is_senior_admin: false
+    last_login: Sun, 17 Jan 2016 12:30:29 -0500
+    custom_login_message: ''
+    console_aliases: []
+    ips:
+    - 86.2.41.91

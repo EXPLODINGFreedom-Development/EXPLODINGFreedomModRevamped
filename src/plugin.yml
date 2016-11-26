@@ -1,0 +1,8 @@
+name: EXPLODINGFreedomModRevamped
+main: me.StevenLawson.TotalFreedomMod.TotalFreedomMod
+version: 8.2-Sempron
+description: Plugin for the EXPLODINGFreedom server.
+softdepend: [BukkitTelnet, WorldEdit, Essentials, BarAPI, Votifier, CoreProtect]
+authors: [Madgeek1450, Prozza, Easter_Elf, Alco_Rs11]
+
+# plugin.yml is no longer used to define commands.
