@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandPermissions(level = AdminLevel.ALL, source = SourceType.ONLY_IN_GAME)
-@CommandParameters(description = "How to become administrator status", aliases = "ai", usage = "/<command>")
+@CommandParameters(description = "How to become administrator status", aliases = "admininfo", usage = "/<command>")
 public class Command_ai extends TFM_Command {
       @Override
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole) {
